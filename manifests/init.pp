@@ -1,3 +1,3 @@
 class grahamconfig {
-    class {'grahamconfig::config'}
+    class {'grahamconfig::config':}
 }

@@ -1,8 +1,9 @@
 class grahamconfig::config (
-    $my_homedir   = $::grahamconfig::params::my_homedir,
-    $my_sourcedir = $::grahamconfig::params::my_sourcedir,
-    $my_username  = $::grahamconfig::params::my_username
     ){
+
+    $my_homedir   = $grahamconfig::my_homedir,
+    $my_sourcedir = $grahamconfig::my_sourcedir,
+    $my_username  = $grahamconfig::my_username
     
     if !defined(File["${my_sourcedir}/Mine"]){
         file {"${my_sourcedir}/Mine":

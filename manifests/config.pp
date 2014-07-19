@@ -22,6 +22,12 @@ class grahamconfig::config (
         }
     }
 
+    if !defined(File["${my_sourcedir}/Others"]){
+        file {"${my_sourcedir}/Others":
+            ensure => directory,
+        }
+    }
+
     osx_chsh { $my_username:
         shell   => '/bin/zsh',
     }
@@ -48,5 +54,12 @@ class grahamconfig::config (
         domain => 'com.apple.finder',
         key    => 'QLEnableTextSelection',
         value  => 'YES',
+    }
+
+    # CocoaPython Template for Xcode
+    repository { 'Xcode4CocoaPythonTemplates':
+        source => 'gregneagle/Xcode4CocoaPythonTemplates',
+        path   => "${my_sourcedir}/Others/Xcode4CocoaPythonTemplates",
+        require => File["${my_sourcedir}/Others"],
     }
 }

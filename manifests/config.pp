@@ -62,4 +62,10 @@ class grahamconfig::config (
         path   => "${my_sourcedir}/Others/Xcode4CocoaPythonTemplates",
         require => File["${my_sourcedir}/Others"],
     }
+
+    file { "/Users/${my_username}/Library/Developer/Xcode/Templates":
+        ensure  => link,
+        target  => "${my_sourcedir}/Others/Xcode4CocoaPythonTemplates",
+        require => Repository['Xcode4CocoaPythonTemplates']
+    }
 }

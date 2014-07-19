@@ -1,7 +1,7 @@
 class grahamconfig (
     $my_username  = 'grahamgilbert',
-    $my_homedir   = "/Users/${my_username}",
-    $my_sourcedir = "${my_homedir}/src",
+    $my_homedir   = '/Users/grahamgilbert',
+    $my_sourcedir = '/Users/grahamgilbert/src',
     ){
     class {'grahamconfig::config':}
 }

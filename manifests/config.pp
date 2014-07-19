@@ -22,6 +22,10 @@ class grahamconfig::config (
         }
     }
 
+    osx_chsh { $my_username:
+        shell   => '/bin/zsh',
+    }
+
     # Stop Preview re-opening documents
     mac_admin::osx_defaults { 'Stop Preview re-opening documents':
           ensure => present,

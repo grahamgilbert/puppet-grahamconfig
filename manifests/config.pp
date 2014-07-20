@@ -20,10 +20,10 @@ class grahamconfig::config (
 
     # Stop Preview re-opening documents
     mac_admin::osx_defaults { 'Stop Preview re-opening documents':
-          ensure => present,
-          domain => 'com.apple.Preview',
-          key    => 'NSQuitAlwaysKeepsWindows',
-          value  => 'NO',
+        ensure => present,
+        domain => 'com.apple.Preview',
+        key    => 'NSQuitAlwaysKeepsWindows',
+        value  => 'NO',
     }
 
     mac_admin::osx_defaults { 'Enable AirDrop on all interfaces':
@@ -65,7 +65,6 @@ class grahamconfig::config (
     repository { 'puppet-textmate-bundle':
         source  => 'puppet-textmate-bundle/puppet-textmate-bundle',
         path    => "${my_sourcedir}/Others/puppet-textmate-bundle",
-        require => File["${my_sourcedir}/Others"],
     }
 
 

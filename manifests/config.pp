@@ -10,24 +10,6 @@ class grahamconfig::config (
         group => 'staff'
     }
 
-    if !defined(File["${my_sourcedir}"]){
-        file {"${my_sourcedir}":
-            ensure => directory,
-        }
-    }
-
-    if !defined(File["${my_sourcedir}/Mine"]){
-        file {"${my_sourcedir}/Mine":
-            ensure => directory,
-        }
-    }
-
-    if !defined(File["${my_sourcedir}/Others"]){
-        file {"${my_sourcedir}/Others":
-            ensure => directory,
-        }
-    }
-
     osx_chsh { $my_username:
         shell   => '/bin/zsh',
     }

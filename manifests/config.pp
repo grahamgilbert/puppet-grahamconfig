@@ -46,7 +46,6 @@ class grahamconfig::config (
     repository { 'Xcode4CocoaPythonTemplates':
         source => 'gregneagle/Xcode4CocoaPythonTemplates',
         path   => "${my_sourcedir}/Others/Xcode4CocoaPythonTemplates",
-        require => File["${my_sourcedir}/Others"],
     }
 
     file { "/Users/${my_username}/Library/Developer/Xcode/Templates":
@@ -70,7 +69,7 @@ class grahamconfig::config (
     }
 
 
-    file { "/Users/${::luser}/Library/Application Support/TextMate/Managed/Bundles/Puppet.tmbundle":
+    file { "/Users/${my_username}/Library/Application Support/TextMate/Managed/Bundles/Puppet.tmbundle":
         ensure  => link,
         force   => true,
         target  => "${my_sourcedir}/Others/puppet-textmate-bundle",

@@ -15,22 +15,19 @@ class grahamconfig::directories (
         }
     }
 
-    if !defined(File["${my_sourcedir}/Mine"]){
-        file {"${my_sourcedir}/Mine":
-            ensure => directory,
-        }
+    file {"/Users/${::luser}/src/Mine":
+        ensure => link,
+        target => "/Users/${my_username}/Dropbox/src/Mine",
     }
 
-    if !defined(File["${my_sourcedir}/Others"]){
-        file {"${my_sourcedir}/Others":
-            ensure => directory,
-        }
+    file {"/Users/${::luser}/src/Others":
+        ensure => link,
+        target => "/Users/${my_username/Dropbox/src/Others",
     }
 
-    if !defined(File["${my_sourcedir}/Work"]){
-        file {"${my_sourcedir}/Work":
-            ensure => directory,
-        }
+    file {"/Users/${::luser}/src/Work":
+        ensure => link,
+        target => "/Users/${my_username}/Dropbox/src/Work",
     }
 
     if !defined(File['/Library/Management']){

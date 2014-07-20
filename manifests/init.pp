@@ -4,6 +4,7 @@ class grahamconfig (
     $my_sourcedir = '/Users/grahamgilbert/src',
     ){
     class {'grahamconfig::directories': } ->
+    class {'grahamconfig::repositories': } ->
     class {'grahamconfig::config': } ->
     class {'grahamconfig::dock': } ->
     class {'grahamconfig::wallpaper': }

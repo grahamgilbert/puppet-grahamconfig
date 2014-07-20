@@ -22,7 +22,7 @@ class grahamconfig::directories (
 
     file {"/Users/${::luser}/src/Others":
         ensure => link,
-        target => "/Users/${my_username/Dropbox/src/Others",
+        target => "/Users/${my_username}/Dropbox/src/Others",
     }
 
     file {"/Users/${::luser}/src/Work":

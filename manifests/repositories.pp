@@ -1,4 +1,4 @@
-class grahamconfig::wallpaper (
+class grahamconfig::repositories (
 ){
     $my_homedir   = $grahamconfig::my_homedir
     $my_sourcedir = $grahamconfig::my_sourcedir

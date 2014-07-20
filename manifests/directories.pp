@@ -15,17 +15,17 @@ class grahamconfig::directories (
         }
     }
 
-    file {"/Users/${::luser}/src/Mine":
+    file {"${my_sourcedir}/Mine":
         ensure => link,
         target => "/Users/${my_username}/Dropbox/src/Mine",
     }
 
-    file {"/Users/${::luser}/src/Others":
+    file {"${my_sourcedir}/Others":
         ensure => link,
         target => "/Users/${my_username}/Dropbox/src/Others",
     }
 
-    file {"/Users/${::luser}/src/Work":
+    file {"${my_sourcedir}/src/Work":
         ensure => link,
         target => "/Users/${my_username}/Dropbox/src/Work",
     }

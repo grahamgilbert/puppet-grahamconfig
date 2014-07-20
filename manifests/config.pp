@@ -54,10 +54,17 @@ class grahamconfig::config (
         require => Repository['Xcode4CocoaPythonTemplates']
     }
 
+    exec {'Install the luggage':
+        command => '/usr/bin/make bootstrap_files',
+        cwd     => "${my_sourcedir}/Others/luggage",
+        creates => '/usr/local/share/luggage/luggage.make',
+        require => Repository['the_luggage']
+    }
+
     file { '/usr/local/share/luggage/luggage.local':
         ensure  => link,
         target  => "${my_sourcedir}/Mine/luggage_local/luggage.local",
-        require => Repository['luggage_local']
+        require => Exec['Install the luggage']
     }
 
     # TextMate

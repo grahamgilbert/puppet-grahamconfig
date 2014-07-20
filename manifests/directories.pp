@@ -25,7 +25,7 @@ class grahamconfig::directories (
         target => "/Users/${my_username}/Dropbox/src/Others",
     }
 
-    file {"${my_sourcedir}/src/Work":
+    file {"${my_sourcedir}/Work":
         ensure => link,
         target => "/Users/${my_username}/Dropbox/src/Work",
     }

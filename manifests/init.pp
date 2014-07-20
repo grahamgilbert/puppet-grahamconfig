@@ -3,5 +3,6 @@ class grahamconfig (
     $my_homedir   = '/Users/grahamgilbert',
     $my_sourcedir = '/Users/grahamgilbert/src',
     ){
-    class {'grahamconfig::config':}
+    class {'grahamconfig::config': } ->
+    class {'grahamconfig::dock': }
 }

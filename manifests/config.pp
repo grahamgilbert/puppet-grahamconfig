@@ -169,4 +169,53 @@ class grahamconfig::config (
         group   => 0,
         mode    => '0644',
     }
+
+# Install the ksdiff tool
+
+    file {'/usr/local':
+        ensure => 'directory',
+        owner  => 0,
+        group  => 0,
+    }
+
+    file {'/usr/local/bin':
+        ensure => 'directory',
+        owner  => 0,
+        group  => 0,
+    }
+
+    file {'/usr/local/bin/ksdiff':
+        owner   => 0,
+        group   => 0,
+        mode    => '0755',
+        source  => '/Applications/Kaleidoscope.app/Contents/Resources/bin/ksdiff',
+        require => File['/usr/local/bin'],
+    }
+
+    # Symlink in the Atom config
+    file {"/Users/${::luser}/.atom":
+        ensure => link,
+        target => "/Users/${my_username}/Dropbox/Config/Atom",
+    }
+
+    # Set up iTerm Preferences
+    mac_admin::osx_defaults { 'Load iTerm prefences from a custom folder':
+        domain => 'com.googlecode.iterm2',
+        key    => 'LoadPrefsFromCustomFolder',
+        type   => 'bool',
+        value  => 'true',
+    }
+
+    mac_admin::osx_defaults { 'Load iTerm prefences from Dropbox':
+        domain => 'com.googlecode.iterm2',
+        key    => 'PrefsCustomFolder',
+        value  => '~/Dropbox/Apps/iTerm',
+    }
+
+    mac_admin::osx_defaults {'Always sync local iTerm preferences to Dropbox':
+        domain => 'com.googlecode.iterm2',
+        key     => 'NoSyncNeverRemindPrefsChangesCopy',
+        type     => 'bool',
+        value  => 'true',
+    }
 }

@@ -7,5 +7,7 @@ class grahamconfig (
     class {'grahamconfig::repositories': } ->
     class {'grahamconfig::config': } ->
     class {'grahamconfig::dock': } ->
-    class {'grahamconfig::wallpaper': }
+    class {'grahamconfig::wallpaper': } ->
+    class {'grahamconfig::fonts': } ->
+    class {'grahamconfig::gems': }
 }

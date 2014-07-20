@@ -218,4 +218,10 @@ class grahamconfig::config (
         type     => 'bool',
         value  => 'true',
     }
+    #Sublime text
+    file { "/Users/${my_username}/Library/Application Support/Sublime Text 2":
+        ensure  => link,
+        target  => "${my_homedir}/Dropbox/Apps/Sublime Text 2",
+        require => Repository['Xcode4CocoaPythonTemplates']
+    }
 }

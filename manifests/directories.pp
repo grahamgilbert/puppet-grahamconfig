@@ -27,7 +27,7 @@ class grahamconfig::directories (
     }
 
     exec{'Hide Dropbox':
-        command     => '/usr/bin/chflags hidden /Users/${my_username}/Dropbox'
+        command     => '/usr/bin/chflags hidden /Users/${my_username}/Dropbox',
         refreshonly => true
     }
 

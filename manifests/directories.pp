@@ -22,7 +22,7 @@ class grahamconfig::directories (
 
     file {"/Users/${my_username}/Dropbox":
         ensure => link,
-        target => "/Users/${my_username}/Dropbox (Personal)",
+        target => "/Users/${my_username}/Dropbox",
         notify => Exec['Hide Dropbox'],
     }
 

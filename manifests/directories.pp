@@ -23,6 +23,12 @@ class grahamconfig::directories (
     file {"/Users/${my_username}/Dropbox":
         ensure => link,
         target => "/Users/${my_username}/Dropbox (Personal)",
+        notify => Exec['Hide Dropbox'],
+    }
+
+    exec{'Hide Dropbox':
+        command     => '/usr/bin/chflags hidden /Users/${my_username}/Dropbox'
+        refreshonly => true
     }
 
     file {"${my_sourcedir}/Others":

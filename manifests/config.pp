@@ -97,7 +97,7 @@ class grahamconfig::config (
 
     file { "/Users/${my_username}/.zshrc":
         ensure  => link,
-        target  => "/Users/${m}/.oh-my-zsh/grahams-zshrc",
+        target  => "/Users/${my_username}/.oh-my-zsh/grahams-zshrc",
         require => Repository['oh-my-zsh']
     }
 

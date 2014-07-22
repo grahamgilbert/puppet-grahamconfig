@@ -222,8 +222,8 @@ class grahamconfig::config (
 
     mac_admin::osx_defaults {'Always sync local iTerm preferences to Dropbox':
         domain => 'com.googlecode.iterm2',
-        key     => 'NoSyncNeverRemindPrefsChangesCopy',
-        type     => 'bool',
+        key    => 'NoSyncNeverRemindPrefsChangesCopy',
+        type   => 'bool',
         value  => 'true',
     }
     #Sublime text
@@ -251,5 +251,19 @@ class grahamconfig::config (
         key    => 'MouseButtonMode',
         value  => 'TwoButton',
         type   => 'string'
+    }
+	
+    mac_admin::osx_defaults { 'Set the trackpad tap to click':
+        user   => $my_username,
+        domain => 'com.apple.driver.AppleBluetoothMultitouch.trackpad',
+        key    => 'Clicking',
+        value  => 'true'
+    }
+	
+    mac_admin::osx_defaults { 'Set the trackpad tap to click':
+        user   => $my_username,
+        domain => 'com.apple.driver.AppleBluetoothMultitouch.trackpad',
+        key    => 'Clicking',
+        value  => 'true'
     }
 }

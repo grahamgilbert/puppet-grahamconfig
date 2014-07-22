@@ -19,12 +19,12 @@ class grahamconfig::config (
     }
 
     # If on Home Machine, enroll in Systems manager
-    if $::fqdn == 'Artoo.local'{
-        mac_profiles_handler::manage { 'com.meraki.sm.mdm':
-            ensure      => present,
-            file_source => "${my_homedir}/Dropbox/Config/Meraki/com.meraki.sm.mdm.mobileconfig",
-        }
-    }
+    # if $::fqdn == 'Artoo.local'{
+#         mac_profiles_handler::manage { 'com.meraki.sm.mdm':
+#             ensure      => present,
+#             file_source => "${my_homedir}/Dropbox/Config/Meraki/com.meraki.sm.mdm.mobileconfig",
+#         }
+#     }
 
     # Stop Preview re-opening documents
     mac_admin::osx_defaults { 'Stop Preview re-opening documents':
@@ -222,8 +222,8 @@ class grahamconfig::config (
 
     mac_admin::osx_defaults {'Always sync local iTerm preferences to Dropbox':
         domain => 'com.googlecode.iterm2',
-        key     => 'NoSyncNeverRemindPrefsChangesCopy',
-        type     => 'bool',
+        key    => 'NoSyncNeverRemindPrefsChangesCopy',
+        type   => 'bool',
         value  => 'true',
     }
     #Sublime text
@@ -244,17 +244,19 @@ class grahamconfig::config (
         target  => "${my_homedir}/Dropbox/Apps/Bartender/com.surteesstudios.Bartender.plist"
     }
 
-    $mode = 'TwoButton'
-    $value = $mode ? {
-        1 => 'OneButton',
-        2 => 'TwoButton'
-    }
 
-    boxen::osx_defaults { 'Set the button mode for multitouch mice':
-        user   => $my_username],
+    mac_admin::osx_defaults { 'Set the button mode for multitouch mice':
+        user   => $my_username,
         domain => 'com.apple.driver.AppleBluetoothMultitouch.mouse',
         key    => 'MouseButtonMode',
-        value  => $value,
+        value  => 'TwoButton',
         type   => 'string'
+    }
+	
+    mac_admin::osx_defaults { 'Set the trackpad tap to click':
+        user   => $my_username,
+        domain => 'com.apple.driver.AppleBluetoothMultitouch.trackpad',
+        key    => 'Clicking',
+        value  => 'true'
     }
 }

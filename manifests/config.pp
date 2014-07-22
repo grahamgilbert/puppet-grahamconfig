@@ -19,12 +19,12 @@ class grahamconfig::config (
     }
 
     # If on Home Machine, enroll in Systems manager
-    if $::fqdn == 'Artoo.local'{
-        mac_profiles_handler::manage { 'com.meraki.sm.mdm':
-            ensure      => present,
-            file_source => "${my_homedir}/Dropbox/Config/Meraki/com.meraki.sm.mdm.mobileconfig",
-        }
-    }
+    # if $::fqdn == 'Artoo.local'{
+#         mac_profiles_handler::manage { 'com.meraki.sm.mdm':
+#             ensure      => present,
+#             file_source => "${my_homedir}/Dropbox/Config/Meraki/com.meraki.sm.mdm.mobileconfig",
+#         }
+#     }
 
     # Stop Preview re-opening documents
     mac_admin::osx_defaults { 'Stop Preview re-opening documents':

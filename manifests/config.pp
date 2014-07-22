@@ -259,4 +259,11 @@ class grahamconfig::config (
         key    => 'Clicking',
         value  => 'true'
     }
+	
+	mac_admin::osx_defaults { 'Open finder windows at home directory':
+		user   => $my_username,
+		domain => 'com.apple.finder',
+		key    => 'NewWindowTargetPath',
+		value  => $my_homedir,
+	}
 }

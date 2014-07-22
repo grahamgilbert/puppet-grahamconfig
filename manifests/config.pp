@@ -243,4 +243,18 @@ class grahamconfig::config (
         ensure  => link,
         target  => "${my_homedir}/Dropbox/Apps/Bartender/com.surteesstudios.Bartender.plist"
     }
+
+    $mode = 'TwoButton'
+    $value = $mode ? {
+        1 => 'OneButton',
+        2 => 'TwoButton'
+    }
+
+    boxen::osx_defaults { 'Set the button mode for multitouch mice':
+        user   => $my_username],
+        domain => 'com.apple.driver.AppleBluetoothMultitouch.mouse',
+        key    => 'MouseButtonMode',
+        value  => $value,
+        type   => 'string'
+    }
 }

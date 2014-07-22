@@ -245,7 +245,7 @@ class grahamconfig::config (
     }
 
 
-    boxen::osx_defaults { 'Set the button mode for multitouch mice':
+    mac_admin::osx_defaults { 'Set the button mode for multitouch mice':
         user   => $my_username,
         domain => 'com.apple.driver.AppleBluetoothMultitouch.mouse',
         key    => 'MouseButtonMode',

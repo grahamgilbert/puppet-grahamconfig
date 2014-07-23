@@ -182,14 +182,14 @@ class grahamconfig::config (
 
     file {'/usr/local':
         ensure => 'directory',
-        owner  => 0,
-        group  => 0,
+        owner  => "$my_username",
+        group  => 'staff',
     }
 
     file {'/usr/local/bin':
         ensure => 'directory',
-        owner  => 0,
-        group  => 0,
+        owner  => "$my_username",
+        group  => 'staff',
     }
 
     file {'/usr/local/bin/ksdiff':

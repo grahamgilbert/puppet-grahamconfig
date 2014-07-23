@@ -266,4 +266,11 @@ class grahamconfig::config (
 		key    => 'NewWindowTargetPath',
 		value  => $my_homedir,
 	}
+
+    mac_admin::osx_defaults { 'AutoPkg Munki Repo':
+        user   => $my_username,
+        domain => 'com.github.autopkg',
+        key    => 'MUNKI_REPO',
+        value  => '/Volumes/Munki',
+    }
 }

@@ -14,17 +14,21 @@ class grahamconfig::vagrant (
 
     file { "/Users/${my_username}/.vagrant.d":
         ensure => directory,
-        recurse => true,
     }
 
     file { "/Users/${my_username}/.vagrant.d/license-vagrant-vmware-fusion.lic":
-      ensure  => present,
-      mode    => '0644',
-      source  => $license,
+        ensure  => present,
+        mode    => '0644',
+        source  => $license,
     }
 
     vagrant_plugin { 'vagrant-vmware-fusion':
         ensure => present
+    } ->
+    file {"/Users/${my_username}/.vagrant.d/gems":
+        owner   => $my_username,
+        group   => 'staff',
+        recurse => true,
     }
 
 }

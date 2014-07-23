@@ -14,6 +14,7 @@ class grahamconfig::vagrant (
 
     file { "/Users/${my_username}/.vagrant.d":
         ensure => directory,
+        recurse => true,
     }
 
     file { "/Users/${my_username}/.vagrant.d/license-vagrant-vmware-fusion.lic":
@@ -25,4 +26,5 @@ class grahamconfig::vagrant (
     vagrant_plugin { 'vagrant-vmware-fusion':
         ensure => present
     }
+
 }

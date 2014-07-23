@@ -1,4 +1,4 @@
-class grahamconfig::dock (
+class grahamconfig::ssh_keys (
 ){
     $my_homedir   = $grahamconfig::my_homedir
     $my_sourcedir = $grahamconfig::my_sourcedir

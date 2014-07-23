@@ -9,5 +9,6 @@ class grahamconfig (
     class {'grahamconfig::dock': } ->
     class {'grahamconfig::wallpaper': } ->
     class {'grahamconfig::fonts': } ->
-    class {'grahamconfig::gems': }
+    class {'grahamconfig::gems': } ->
+    class {'grahamconfig::ssh_keys': }
 }

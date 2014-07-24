@@ -15,6 +15,11 @@ class grahamconfig::directories (
         }
     }
 
+    file {"${my_homedir}":
+        owner   => $my_username,
+        recurse => true,
+    }
+
     file {"${my_sourcedir}/Mine":
         ensure => link,
         target => "/Users/${my_username}/Dropbox/src/Mine",

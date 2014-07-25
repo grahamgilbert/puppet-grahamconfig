@@ -15,10 +15,10 @@ class grahamconfig::directories (
         }
     }
 
-    file {"${my_homedir}":
-        owner   => $my_username,
-        recurse => true,
-    }
+    # file {"${my_homedir}":
+    #     owner   => $my_username,
+    #     recurse => true,
+    # }
 
     file {"${my_sourcedir}/Mine":
         ensure => link,

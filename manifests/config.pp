@@ -296,13 +296,15 @@ class grahamconfig::config (
         user   => $my_username,
         domain => 'com.lightheadsw.Caffeine.plist',
         key    => 'ActivateOnLaunch',
-        value  => 'true'
+        value  => 'true',
+        type   => 'bool',
     }
 
     mac_admin::osx_defaults {'Suppress Caffeine launch message':
         user   => $my_username,
         domain => 'com.lightheadsw.Caffeine.plist',
         key    => 'SuppressLaunchMessage',
-        value  => 'true'
+        value  => 'true',
+        type   => 'bool',
     }
 }

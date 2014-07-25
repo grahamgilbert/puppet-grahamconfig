@@ -103,10 +103,17 @@ class grahamconfig::config (
         ensure => 'cbabe35ea03432046f03657a8dbde5f46634668d',
      }
 
+     file {"/Users/${my_username}/.oh-my-zsh":
+        owner   => $my_username,
+        recurse => true,
+        require => Repository['oh-my-zsh'],
+    }
+
     file { "/Users/${my_username}/.zshrc":
         ensure  => link,
         target  => "/Users/${my_username}/.oh-my-zsh/grahams-zshrc",
-        require => Repository['oh-my-zsh']
+        require => Repository['oh-my-zsh'],
+        owner   => $my_username,
     }
 
     mac_admin::osx_defaults { 'Finder Status Bar':
@@ -114,18 +121,21 @@ class grahamconfig::config (
         domain =>  'com.apple.finder',
         key    =>  'ShowStatusBar',
         value  =>  'YES',
+        user    => $my_username,
     }
 
     mac_admin::osx_defaults { 'Disable the "Are you sure you want to open this application?" dialog':
         key    => 'LSQuarantine',
         domain => 'com.apple.LaunchServices',
         value  => 'true',
+        user    => $my_username,
     }
 
     mac_admin::osx_defaults { 'Remove Alfred Hat from the Menu Bar':
         domain  => 'com.alfredapp.Alfred',
         key     => 'appearance.hideStatusBarIcon',
         value   => 'YES',
+        user    => $my_username,
     }
 
     mac_admin::osx_defaults {
@@ -135,6 +145,7 @@ class grahamconfig::config (
         domain => 'com.apple.TimeMachine',
         value  => 'true',
         type   => 'bool',
+        user   => $my_username,
     }
 
     mac_admin::osx_defaults { 'Make Go2Shell Use iTerm':
@@ -142,6 +153,7 @@ class grahamconfig::config (
         key     => 'usingTerminal',
         #type   => 'BOOL',
         value   => '2',
+        user    => $my_username,
     }
 
     mac_admin::osx_defaults { 'Show time connected in the VPN menubar item':
@@ -149,18 +161,21 @@ class grahamconfig::config (
         key    => 'VPNShowTime',
         type   => 'bool',
         value  => 'true',
+        user    => $my_username,
     }
 
     mac_admin::osx_defaults { 'Disk util debug menu':
         domain  => 'com.apple.DiskUtility',
         key     => 'DUDebugMenuEnabled',
         value   => 1,
+        user    => $my_username,
     }
 
     mac_admin::osx_defaults {'Four finger trackpad swipe':
         domain => 'com.apple.driver.AppleBluetoothMultitouch.trackpad',
         key    => 'TrackpadFourFingerVertSwipeGesture',
         value  => 2,
+        user   => $my_username,
     }
 
     ##hide away from meraki
@@ -212,12 +227,14 @@ class grahamconfig::config (
         key    => 'LoadPrefsFromCustomFolder',
         type   => 'bool',
         value  => 'true',
+        user    => $my_username,
     }
 
     mac_admin::osx_defaults { 'Load iTerm prefences from Dropbox':
         domain => 'com.googlecode.iterm2',
         key    => 'PrefsCustomFolder',
-        value  => '~/Dropbox/Apps/iTerm',
+        value  => "$my_homedir/Dropbox/Apps/iTerm",
+        user   => $my_username,
     }
 
     mac_admin::osx_defaults {'Always sync local iTerm preferences to Dropbox':
@@ -225,6 +242,7 @@ class grahamconfig::config (
         key    => 'NoSyncNeverRemindPrefsChangesCopy',
         type   => 'bool',
         value  => 'true',
+        user   => $my_username,
     }
     #Sublime text
     file { "/Users/${my_username}/Library/Application Support/Sublime Text 2":
@@ -250,14 +268,14 @@ class grahamconfig::config (
         domain => 'com.apple.driver.AppleBluetoothMultitouch.mouse',
         key    => 'MouseButtonMode',
         value  => 'TwoButton',
-        type   => 'string'
+        type   => 'string',
     }
 	
     mac_admin::osx_defaults { 'Set the trackpad tap to click':
         user   => $my_username,
         domain => 'com.apple.driver.AppleBluetoothMultitouch.trackpad',
         key    => 'Clicking',
-        value  => 'true'
+        value  => 'true',
     }
 	
 	mac_admin::osx_defaults { 'Open finder windows at home directory':

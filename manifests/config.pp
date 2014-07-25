@@ -291,4 +291,18 @@ class grahamconfig::config (
         key    => 'MUNKI_REPO',
         value  => '/Volumes/Munki',
     }
+
+    mac_admin::osx_defaults {'Activate Caffeine on launch':
+        user   => $my_username,
+        domain => 'com.lightheadsw.Caffeine.plist',
+        key    => 'ActivateOnLaunch',
+        value  => 'true'
+    }
+
+    mac_admin::osx_defaults {'Suppress Caffeine launch message':
+        user   => $my_username,
+        domain => 'com.lightheadsw.Caffeine.plist',
+        key    => 'SuppressLaunchMessage',
+        value  => 'true'
+    }
 }

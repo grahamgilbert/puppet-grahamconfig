@@ -7,7 +7,6 @@ class grahamconfig::directories (
     File {
         owner   => $my_username,
         group   => 'staff',
-        recurse => true,
     }
 
     if !defined(File["${my_sourcedir}"]){

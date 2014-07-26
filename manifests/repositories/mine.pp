@@ -5,4 +5,5 @@ class grahamconfig::repositories::mine (
     $my_username  = $grahamconfig::my_username
 
     class {'grahamconfig::repositories::mine::luggage_local': }
+    class {'grahamconfig::repositories::mine::puppet_run': }
 }

@@ -132,9 +132,16 @@ class grahamconfig::config (
     }
 
     mac_admin::osx_defaults { 'Remove Alfred Hat from the Menu Bar':
-        domain  => 'com.alfredapp.Alfred',
+        domain  => 'com.runningwithcrayons.Alfred-Preferences',
         key     => 'appearance.hideStatusBarIcon',
         value   => 'YES',
+        user    => $my_username,
+    }
+
+    mac_admin::osx_defaults { 'Set Alfred theme to Lion':
+        domain  => 'com.runningwithcrayons.Alfred-Preferences',
+        key     => 'appearance.theme',
+        value   => 'alfred.theme.lion',
         user    => $my_username,
     }
 

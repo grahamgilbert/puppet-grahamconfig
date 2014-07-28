@@ -315,4 +315,11 @@ class grahamconfig::config (
         value  => 'true',
         type   => 'bool',
     }
+
+    mac_admin::osx_defaults { 'hide users with a UID less than 500':
+        domain => 'com.apple.loginwindow',
+        key    => 'Hide500Users',
+        type   => 'bool',
+        value  => 'true',
+    }
 }

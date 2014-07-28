@@ -132,7 +132,7 @@ class grahamconfig::config (
     }
 
     mac_admin::osx_defaults { 'Remove Alfred Hat from the Menu Bar':
-        domain  => "/Users/${my_username}/Library/Application\ Support/Alfred 2/Alfred.alfredpreferences/preferences/appearance/options/prefs.plist",
+        domain  => "/Users/${my_username}/Library/Application Support/Alfred 2/Alfred.alfredpreferences/preferences/appearance/options/prefs.plist",
         key     => 'hidemenu',
         value   => 'true',
         type    => bool,

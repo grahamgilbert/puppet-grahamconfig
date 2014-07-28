@@ -22,13 +22,16 @@ class grahamconfig::vagrant (
         source  => $license,
     }
 
-    vagrant_plugin { 'vagrant-vmware-fusion':
-        ensure => present
-    } ->
-    file {"/Users/${my_username}/.vagrant.d/gems":
-        owner   => $my_username,
-        group   => 'staff',
-        recurse => true,
+    if $::macosx_productversion_major != '10.10'{
+
+        vagrant_plugin { 'vagrant-vmware-fusion':
+            ensure => present
+        } ->
+        file {"/Users/${my_username}/.vagrant.d/gems":
+            owner   => $my_username,
+            group   => 'staff',
+            recurse => true,
+        }
     }
 
 }

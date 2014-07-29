@@ -5,6 +5,11 @@ class grahamconfig::gems {
 		ensure   => 'latest',
 	}
 
+	package { 'CFPropertyList':
+		provider => 'gem',
+		ensure   => 'latest',
+	}
+	
 	package { 'puppet-lint':
 		provider => 'gem',
 		ensure   => 'latest',

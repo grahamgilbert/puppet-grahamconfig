@@ -18,6 +18,9 @@ class grahamconfig::config (
         shell   => '/bin/zsh',
     }
 
+    class { 'grahamconfig::config::system': } ->
+    class {'grahamconfig::config::autopkg': }
+
     # If on Home Machine, enroll in Systems manager
     # if $::fqdn == 'Artoo.local'{
 #         mac_profiles_handler::manage { 'com.meraki.sm.mdm':
@@ -26,29 +29,7 @@ class grahamconfig::config (
 #         }
 #     }
 
-    # Stop Preview re-opening documents
-    mac_admin::osx_defaults { 'Stop Preview re-opening documents':
-        ensure => present,
-        domain => 'com.apple.Preview',
-        key    => 'NSQuitAlwaysKeepsWindows',
-        value  => 'NO',
-    }
 
-    mac_admin::osx_defaults { 'Enable AirDrop on all interfaces':
-        ensure => present,
-        domain => 'com.apple.NetworkBrowser',
-        key    => 'BrowseAllInterfaces',
-        value  => 'true',
-        type   => 'bool',
-        user   => $my_username
-    }
-
-    mac_admin::osx_defaults { 'Copy text from QuickLook':
-        ensure => present,
-        domain => 'com.apple.finder',
-        key    => 'QLEnableTextSelection',
-        value  => 'YES',
-    }
 
     # CocoaPython Template for Xcode
     repository { 'Xcode4CocoaPythonTemplates':
@@ -91,10 +72,10 @@ class grahamconfig::config (
     }
 
     mac_admin::osx_defaults { 'TextMate File Browser Placement':
-          ensure => present,
-          domain => 'com.macromates.TextMate.preview',
-          key    => 'fileBrowserPlacement',
-          value  => 'left',
+        ensure => present,
+        domain => 'com.macromates.TextMate.preview',
+        key    => 'fileBrowserPlacement',
+        value  => 'left',
     }
 
     repository { 'oh-my-zsh':
@@ -116,20 +97,7 @@ class grahamconfig::config (
         owner   => $my_username,
     }
 
-    mac_admin::osx_defaults { 'Finder Status Bar':
-        ensure =>  present,
-        domain =>  'com.apple.finder',
-        key    =>  'ShowStatusBar',
-        value  =>  'YES',
-        user    => $my_username,
-    }
 
-    mac_admin::osx_defaults { 'Disable the "Are you sure you want to open this application?" dialog':
-        key    => 'LSQuarantine',
-        domain => 'com.apple.LaunchServices',
-        value  => 'true',
-        user    => $my_username,
-    }
 
     # mac_admin::osx_defaults { 'Remove Alfred Hat from the Menu Bar':
     #     domain  => "/Users/${my_username}/Library/Application Support/Alfred 2/Alfred.alfredpreferences/preferences/appearance/options/prefs.plist",
@@ -146,45 +114,8 @@ class grahamconfig::config (
         user    => $my_username,
     }
 
-    mac_admin::osx_defaults {
-        'Prevent Time Machine from prompting to use new hard drives as backup volume':
-        ensure => present,
-        key    => 'DoNotOfferNewDisksForBackup',
-        domain => 'com.apple.TimeMachine',
-        value  => 'true',
-        type   => 'bool',
-        user   => $my_username,
-    }
-
-    mac_admin::osx_defaults { 'Make Go2Shell Use iTerm':
-        domain  => 'com.alice.mac.go2shell',
-        key     => 'usingTerminal',
-        #type   => 'BOOL',
-        value   => '2',
-        user    => $my_username,
-    }
-
-    mac_admin::osx_defaults { 'Show time connected in the VPN menubar item':
-        domain => 'com.apple.networkConnect',
-        key    => 'VPNShowTime',
-        type   => 'bool',
-        value  => 'true',
-        user    => $my_username,
-    }
-
-    mac_admin::osx_defaults { 'Disk util debug menu':
-        domain  => 'com.apple.DiskUtility',
-        key     => 'DUDebugMenuEnabled',
-        value   => 1,
-        user    => $my_username,
-    }
-
-    mac_admin::osx_defaults {'Four finger trackpad swipe':
-        domain => 'com.apple.driver.AppleBluetoothMultitouch.trackpad',
-        key    => 'TrackpadFourFingerVertSwipeGesture',
-        value  => 2,
-        user   => $my_username,
-    }
+   
+    
 
     ##hide away from meraki
     if !defined(File['/etc/meraki']){
@@ -201,19 +132,7 @@ class grahamconfig::config (
         mode    => '0644',
     }
 
-# Install the ksdiff tool
-
-    file {'/usr/local':
-        ensure => 'directory',
-        owner  => "$my_username",
-        group  => 'staff',
-    }
-
-    file {'/usr/local/bin':
-        ensure => 'directory',
-        owner  => "$my_username",
-        group  => 'staff',
-    }
+    
 
     file {'/usr/local/bin/ksdiff':
         owner   => 0,
@@ -252,6 +171,7 @@ class grahamconfig::config (
         value  => 'true',
         user   => $my_username,
     }
+
     #Sublime text
     file { "/Users/${my_username}/Library/Application Support/Sublime Text 2":
         ensure  => link,
@@ -270,35 +190,6 @@ class grahamconfig::config (
         target  => "${my_homedir}/Dropbox/Apps/Bartender/com.surteesstudios.Bartender.plist"
     }
 
-
-    mac_admin::osx_defaults { 'Set the button mode for multitouch mice':
-        user   => $my_username,
-        domain => 'com.apple.driver.AppleBluetoothMultitouch.mouse',
-        key    => 'MouseButtonMode',
-        value  => 'TwoButton',
-        type   => 'string',
-    }
-	
-    mac_admin::osx_defaults { 'Set the trackpad tap to click':
-        user   => $my_username,
-        domain => 'com.apple.driver.AppleBluetoothMultitouch.trackpad',
-        key    => 'Clicking',
-        value  => 'true',
-    }
-	
-	mac_admin::osx_defaults { 'Open finder windows at home directory':
-		user   => $my_username,
-		domain => 'com.apple.finder',
-		key    => 'NewWindowTargetPath',
-		value  => $my_homedir,
-	}
-
-    mac_admin::osx_defaults { 'AutoPkg Munki Repo':
-        user   => $my_username,
-        domain => 'com.github.autopkg',
-        key    => 'MUNKI_REPO',
-        value  => '/Volumes/Munki',
-    }
 
     mac_admin::osx_defaults {'Activate Caffeine on launch':
         user   => $my_username,

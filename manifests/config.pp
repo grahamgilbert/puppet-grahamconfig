@@ -14,13 +14,14 @@ class grahamconfig::config (
       user => $my_username,
     }
 
-    osx_chsh { $my_username:
-        shell   => '/bin/zsh',
-    }
-
     class { 'grahamconfig::config::system': } ->
     class { 'grahamconfig::config::autopkg': } ->
-    class { 'grahamgilbert::config::cocoapython': }
+    class { 'grahamgilbert::config::cocoapython': } ->
+    class { 'grahamgilbert::config::the_luggage': } ->
+    class { 'grahamgilbert::config::textmate': } ->
+    class { 'grahamgilbert::config::zsh': } ->
+    class { 'grahamgilbert::config::alfred': } ->
+    class { 'grahamgilbert::config::iterm': }
 
     # If on Home Machine, enroll in Systems manager
     # if $::fqdn == 'Artoo.local'{
@@ -31,59 +32,9 @@ class grahamconfig::config (
 #     }
 
 
-    exec {'Install the luggage':
-        command => '/usr/bin/make bootstrap_files',
-        cwd     => "${my_sourcedir}/Others/luggage",
-        creates => '/usr/local/share/luggage/luggage.make',
-        require => Repository['the_luggage']
-    }
+    
 
-    file { '/usr/local/share/luggage/luggage.local':
-        ensure  => link,
-        target  => "${my_sourcedir}/Mine/luggage_local/luggage.local",
-        require => Exec['Install the luggage']
-    }
-
-    # TextMate
-
-    repository { 'puppet-textmate-bundle':
-        source  => 'puppet-textmate-bundle/puppet-textmate-bundle',
-        path    => "${my_sourcedir}/Others/puppet-textmate-bundle",
-    }
-
-
-    file { "/Users/${my_username}/Library/Application Support/TextMate/Managed/Bundles/Puppet.tmbundle":
-        ensure  => link,
-        force   => true,
-        target  => "${my_sourcedir}/Others/puppet-textmate-bundle",
-        require => Repository['puppet-textmate-bundle']
-    }
-
-    mac_admin::osx_defaults { 'TextMate File Browser Placement':
-        ensure => present,
-        domain => 'com.macromates.TextMate.preview',
-        key    => 'fileBrowserPlacement',
-        value  => 'left',
-    }
-
-    repository { 'oh-my-zsh':
-        source => 'grahamgilbert/oh-my-zsh',
-        path   => "/Users/${my_username}/.oh-my-zsh",
-        ensure => 'cbabe35ea03432046f03657a8dbde5f46634668d',
-     }
-
-     file {"/Users/${my_username}/.oh-my-zsh":
-        owner   => $my_username,
-        recurse => true,
-        require => Repository['oh-my-zsh'],
-    }
-
-    file { "/Users/${my_username}/.zshrc":
-        ensure  => link,
-        target  => "/Users/${my_username}/.oh-my-zsh/grahams-zshrc",
-        require => Repository['oh-my-zsh'],
-        owner   => $my_username,
-    }
+ 
 
 
 
@@ -95,12 +46,7 @@ class grahamconfig::config (
     #     user    => $my_username,
     # }
 
-    mac_admin::osx_defaults { 'Set Alfred theme to Lion':
-        domain  => 'com.runningwithcrayons.Alfred-Preferences',
-        key     => 'appearance.theme',
-        value   => 'alfred.theme.lion',
-        user    => $my_username,
-    }
+    
 
    
     
@@ -136,29 +82,7 @@ class grahamconfig::config (
         target => "/Users/${my_username}/Dropbox/Config/Atom",
     }
 
-    # Set up iTerm Preferences
-    mac_admin::osx_defaults { 'Load iTerm prefences from a custom folder':
-        domain => 'com.googlecode.iterm2',
-        key    => 'LoadPrefsFromCustomFolder',
-        type   => 'bool',
-        value  => 'true',
-        user    => $my_username,
-    }
-
-    mac_admin::osx_defaults { 'Load iTerm prefences from Dropbox':
-        domain => 'com.googlecode.iterm2',
-        key    => 'PrefsCustomFolder',
-        value  => "$my_homedir/Dropbox/Apps/iTerm",
-        user   => $my_username,
-    }
-
-    mac_admin::osx_defaults {'Always sync local iTerm preferences to Dropbox':
-        domain => 'com.googlecode.iterm2',
-        key    => 'NoSyncNeverRemindPrefsChangesCopy',
-        type   => 'bool',
-        value  => 'true',
-        user   => $my_username,
-    }
+    
 
     #Sublime text
     file { "/Users/${my_username}/Library/Application Support/Sublime Text 2":

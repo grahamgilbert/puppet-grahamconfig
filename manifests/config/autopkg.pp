@@ -19,7 +19,7 @@ class grahamconfig::config::autopkg (
         value       =>      [ {
                                 'dicts'  => "${my_homedir}/Library/AutoPkg/RecipeRepos/com.github.autopkg.recipes",
                                 'string' => 'https://github.com/autopkg/recipes.git'}],
-        value_type  =>      'dicts',
+        value_type  =>      'hash',
     }
 
     property_list_key { 'RECIPE_REPOS - Arubdesu':
@@ -29,6 +29,6 @@ class grahamconfig::config::autopkg (
         value       =>      [ {
                                 'dicts'  => "${my_homedir}/Library/AutoPkg/RecipeRepos/com.github.arubdesu-recipes",
                                 'string' => 'https://github.com/autopkg/arubdesu-recipes'}],
-        value_type  =>      'dicts',
+        value_type  =>      'hash',
     }
 }

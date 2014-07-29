@@ -17,8 +17,9 @@ class grahamconfig::config::autopkg (
         path        =>      "${my_homedir}/Library/Preferences/com.github.autopkg.plist",
         key         =>      'RECIPE_REPOS',
         value       =>      [ {
-                                'dicts'  => "${my_homedir}/Library/AutoPkg/RecipeRepos/com.github.autopkg.recipes",
-                                'string' => 'https://github.com/autopkg/recipes.git'}],
+                                "${my_homedir}/Library/AutoPkg/RecipeRepos/com.github.autopkg.recipes"  => {
+                                'URL' => 'https://github.com/autopkg/recipes.git'}
+                                }],
         value_type  =>      'hash',
     }
 

@@ -16,12 +16,12 @@ class grahamconfig::config (
 
     class { 'grahamconfig::config::system': } ->
     class { 'grahamconfig::config::autopkg': } ->
-    class { 'grahamgilbert::config::cocoapython': } ->
-    class { 'grahamgilbert::config::the_luggage': } ->
-    class { 'grahamgilbert::config::textmate': } ->
-    class { 'grahamgilbert::config::zsh': } ->
-    class { 'grahamgilbert::config::alfred': } ->
-    class { 'grahamgilbert::config::iterm': }
+    class { 'grahamconfig::config::cocoapython': } ->
+    class { 'grahamconfig::config::the_luggage': } ->
+    class { 'grahamconfig::config::textmate': } ->
+    class { 'grahamconfig::config::zsh': } ->
+    class { 'grahamconfig::config::alfred': } ->
+    class { 'grahamconfig::config::iterm': }
 
     # If on Home Machine, enroll in Systems manager
     # if $::fqdn == 'Artoo.local'{

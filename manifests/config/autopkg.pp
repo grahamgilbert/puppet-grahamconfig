@@ -12,25 +12,16 @@ class grahamconfig::config::autopkg (
         value  => '/Volumes/Munki',
     }
 
-    property_list_key { 'RECIPE_REPOS - Autopkg':
-        ensure      =>      present,
-        path        =>      "${my_homedir}/Library/Preferences/com.github.autopkg.plist",
-        key         =>      'RECIPE_REPOS',
-        value       =>      [ {
-                                "${my_homedir}/Library/AutoPkg/RecipeRepos/com.github.autopkg.recipes"  => {
-                                'URL' => 'https://github.com/autopkg/recipes.git'}
-                                }],
-        value_type  =>      'hash',
+    file {"$my_homedir/Dropbox/Config/bin/autopkg-repos.sh":
+        owner  => $my_username,
+        group  => 'staff',
+        mode   => '0755',
+        source => 'puppet:///modules/grahamconfig/autopkg/autopkg-repos.sh',
     }
 
-    property_list_key { 'RECIPE_REPOS - Arubdesu':
-        ensure      =>      present,
-        path        =>      "${my_homedir}/Library/Preferences/com.github.autopkg.plist",
-        key         =>      'RECIPE_REPOS',
-        value       =>      [ {
-                                "${my_homedir}/Library/AutoPkg/RecipeRepos/com.github.arubdesu-recipes"  => {
-                                'URL' => 'https://github.com/autopkg/arubdesu-recipes'}
-                                }],
-        value_type  =>      'hash',
+    exec { 'AutoPkg recipes': 
+        user => $my_username,
+        command => "$my_homedir/Dropbox/Config/bin/autopkg-repos.sh",
+        creates => "$my_homedir/Library/AutoPkg/RecipeRepos",
     }
 }

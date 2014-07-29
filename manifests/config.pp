@@ -14,6 +14,8 @@ class grahamconfig::config (
       user => $my_username,
     }
 
+    include managedmac::security
+
     class { 'grahamconfig::config::system': } ->
     class { 'grahamconfig::config::autopkg': } ->
     class { 'grahamconfig::config::cocoapython': } ->

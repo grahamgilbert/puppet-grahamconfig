@@ -1,4 +1,4 @@
-class grahamconfig::config::the_luggage (
+class grahamconfig::config::textmate (
     ){
 
     $my_homedir   = $grahamconfig::my_homedir

@@ -19,7 +19,8 @@ class grahamconfig::config (
     }
 
     class { 'grahamconfig::config::system': } ->
-    class {'grahamconfig::config::autopkg': }
+    class { 'grahamconfig::config::autopkg': } ->
+    class { 'grahamgilbert::config::cocoapython': }
 
     # If on Home Machine, enroll in Systems manager
     # if $::fqdn == 'Artoo.local'{
@@ -29,19 +30,6 @@ class grahamconfig::config (
 #         }
 #     }
 
-
-
-    # CocoaPython Template for Xcode
-    repository { 'Xcode4CocoaPythonTemplates':
-        source => 'gregneagle/Xcode4CocoaPythonTemplates',
-        path   => "${my_sourcedir}/Others/Xcode4CocoaPythonTemplates",
-    }
-
-    file { "/Users/${my_username}/Library/Developer/Xcode/Templates":
-        ensure  => link,
-        target  => "${my_sourcedir}/Others/Xcode4CocoaPythonTemplates",
-        require => Repository['Xcode4CocoaPythonTemplates']
-    }
 
     exec {'Install the luggage':
         command => '/usr/bin/make bootstrap_files',

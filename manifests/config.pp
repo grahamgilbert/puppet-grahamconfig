@@ -14,7 +14,7 @@ class grahamconfig::config (
       user => $my_username,
     }
 
-    include managedmac::security
+    #include managedmac::security
 
     class { 'grahamconfig::config::system': } ->
     class { 'grahamconfig::config::autopkg': } ->

@@ -106,4 +106,11 @@ class grahamconfig::config::system (
         key    => 'NewWindowTargetPath',
         value  => $my_homedir,
     }
+
+    mac_admin::osx_defaults { 'Expand save panel by default':
+        user   => $my_username,
+        key    => 'NSNavPanelExpandedStateForSaveMode',
+        domain => 'NSGlobalDomain',
+        value  => true;
+      }
 }

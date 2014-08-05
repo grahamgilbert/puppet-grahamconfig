@@ -22,6 +22,15 @@ class grahamconfig::config::system (
         user   => $my_username
     }
 
+    mac_admin::osx_defaults { 'Disable Dashboard completely':
+        ensure => present,
+        domain => 'com.apple.dashboard',
+        key    => 'mcx-disabled',
+        value  => 'true',
+        type   => 'bool',
+        user   => $my_username
+    }
+
     mac_admin::osx_defaults { 'Copy text from QuickLook':
         ensure => present,
         domain => 'com.apple.finder',

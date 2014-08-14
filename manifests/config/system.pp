@@ -112,5 +112,11 @@ class grahamconfig::config::system (
         key    => 'NSNavPanelExpandedStateForSaveMode',
         domain => 'NSGlobalDomain',
         value  => true;
-      }
+    }
+
+    # Disable GateKeeper
+    exec { 'Disable Gatekeeper':
+        command => 'spctl --master-disable',
+        unless  => 'spctl --status | grep disabled',
+    }
 }

@@ -116,7 +116,7 @@ class grahamconfig::config::system (
 
     # Disable GateKeeper
     exec { 'Disable Gatekeeper':
-        command => 'spctl --master-disable',
-        unless  => 'spctl --status | grep disabled',
+        command => '/usr/sbin/spctl --master-disable',
+        unless  => '/usr/sbin/spctl --status | grep disabled',
     }
 }

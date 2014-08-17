@@ -7,4 +7,10 @@ class grahamconfig::dock (
     scriptrunner::every{'Dock':
         script => 'puppet:///modules/grahamconfig/dock/dock.sh'
     }
+
+    if $::macosx_productversion == '10.10'{
+        scriptrunner::every{'Safari-dock': 
+            script => 'puppet:///modules.grahamconfig/dock/safari-dock.sh'
+        }
+    }
 }

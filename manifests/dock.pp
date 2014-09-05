@@ -11,6 +11,7 @@ class grahamconfig::dock (
     if $::macosx_productversion == '10.10'{
         scriptrunner::every{'Safari-dock': 
             script => 'puppet:///modules/grahamconfig/dock/safari-dock.sh'
+            ensure => absent,
         }
     }
 }

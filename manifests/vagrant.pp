@@ -5,7 +5,7 @@ class grahamconfig::vagrant (
     $my_username  = $grahamconfig::my_username
 
 
-    $license = "${my_homedir}/Dropbox/Config/Vagrant/fusion-6-license.lic"
+    $license = "${my_homedir}/Dropbox/Config/Vagrant/fusion-7-license.lic"
 
     File {
         owner => $my_username,

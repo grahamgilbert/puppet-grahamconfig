@@ -108,6 +108,11 @@ class grahamconfig::config (
         target  => "${my_homedir}/Dropbox/Apps/Sublime Text 2",
     }
 
+    file { "/Users/${my_username}/Library/Application Support/Sublime Text 3":
+        ensure  => link,
+        target  => "${my_homedir}/Dropbox/Apps/Sublime Text 3",
+    }
+
     # iStat Preferences
     file { "/Users/${my_username}/Library/Preferences/com.bjango.istatmenus.extras.plist":
         ensure  => link,

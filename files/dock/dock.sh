@@ -4,7 +4,7 @@
 /usr/local/bin/dockutil --add '/Applications/Google Chrome.app' --no-restart
 /usr/local/bin/dockutil --add '/Applications/Safari.app' --after 'Google Chrome' --no-restart
 /usr/local/bin/dockutil --add '/Applications/Mailbox (Beta).app' --no-restart
-/usr/local/bin/dockutil --add '/Applications/Sublime Text 2.app' --no-restart
+/usr/local/bin/dockutil --add '/Applications/Sublime Text.app' --no-restart
 /usr/local/bin/dockutil --add '/Applications/iTerm.app' --no-restart
 /usr/local/bin/dockutil --add '/Applications/Tweetbot.app' --no-restart
 /usr/local/bin/dockutil --add '/Applications/IRC Cloud.app' --no-restart

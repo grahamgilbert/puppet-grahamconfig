@@ -14,9 +14,22 @@ class grahamconfig::config (
       user => $my_username,
     }
 
-    class {'managedmac::security':
-        ask_for_password       => true,
-        ask_for_password_delay => 300,
+    mac_admin::osx_defaults { 'require password at screensaver':
+        ensure => present,
+        domain => 'com.apple.screensaver',
+        key    => 'askForPassword',
+        value  => 'true',
+        type   => 'bool',
+        user   => $my_username
+    }
+
+    mac_admin::osx_defaults { 'short delay for password dialog on screensaver':
+        ensure => present,
+        domain => 'com.apple.screensaver',
+        key    => 'askForPasswordDelay',
+        value  => '30',
+        type   => 'float',
+        user   => $my_username
     }
 
     class { 'grahamconfig::config::system': } ->

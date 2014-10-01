@@ -14,7 +14,10 @@ class grahamconfig::config (
       user => $my_username,
     }
 
-    #include managedmac::security
+    class {'managedmac::security':
+        ask_for_password       => true,
+        ask_for_password_delay => 300,
+    }
 
     class { 'grahamconfig::config::system': } ->
     class { 'grahamconfig::config::autopkg': } ->
@@ -109,6 +112,14 @@ class grahamconfig::config (
         user   => $my_username,
         domain => 'com.lightheadsw.Caffeine.plist',
         key    => 'ActivateOnLaunch',
+        value  => 'true',
+        type   => 'bool',
+    }
+
+    mac_admin::osx_defaults {'Disable shadow on screenshots':
+        user   => $my_username,
+        domain => 'com.apple.screencapture',
+        key    => 'disable-shadow',
         value  => 'true',
         type   => 'bool',
     }

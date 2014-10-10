@@ -36,6 +36,7 @@ class grahamconfig::config (
     class { 'grahamconfig::config::autopkg': } ->
     class { 'grahamconfig::config::cocoapython': } ->
     class { 'grahamconfig::config::the_luggage': } ->
+    class { 'grahamconfig::config::sublime_text': } ->
     class { 'grahamconfig::config::textmate': } ->
     class { 'grahamconfig::config::zsh': } ->
     class { 'grahamconfig::config::alfred': } ->

@@ -8,7 +8,6 @@ class grahamconfig (
     class {'grahamconfig::repositories': } ->
     class {'grahamconfig::config': } ->
     class {'grahamconfig::dock': } ->
-    class {'grahamconfig::sublime_text': } ->
     class {'grahamconfig::wallpaper': } ->
     class {'grahamconfig::fonts': } ->
     class {'grahamconfig::ssh_keys': } ->

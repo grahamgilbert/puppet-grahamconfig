@@ -109,8 +109,17 @@ class grahamconfig::config (
     }
 
     file { "/Users/${my_username}/Library/Application Support/Sublime Text 3":
+        ensure  => directory,
+    }
+
+    file { "/Users/${my_username}/Library/Application Support/Sublime Text 3/Installed Packages":
         ensure  => link,
-        target  => "${my_homedir}/Dropbox/Apps/Sublime Text 3",
+        target  => "${my_homedir}/Dropbox/Apps/Sublime Text 3/Installed Packages",
+    }
+
+    file { "/Users/${my_username}/Library/Application Support/Sublime Text 3/Packages":
+        ensure  => link,
+        target  => "${my_homedir}/Dropbox/Apps/Sublime Text 3/Packages",
     }
 
     # iStat Preferences

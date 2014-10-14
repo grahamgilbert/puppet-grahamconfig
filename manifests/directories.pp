@@ -10,6 +10,7 @@ class grahamconfig::directories (
     }
 
     file {"${my_homedir}/.ngrok":
+        ensure => present,
         source => "/Users/${my_username}/Dropbox/Config/Ngrok/ngrok",
     }
 

@@ -9,6 +9,11 @@ class grahamconfig::directories (
         group   => 'staff',
     }
 
+    file {"${my_homedir}/.ngrok":
+        ensure => link,
+        target => "/Users/${my_username}/Dropbox/Config/Ngrok/ngrok",
+    }
+
     if !defined(File["${my_sourcedir}"]){
         file {"${my_sourcedir}":
             ensure => directory,

@@ -17,6 +17,13 @@ class grahamconfig::ssh_keys (
         mode => '0600',
         require => Repository['oh-my-zsh'],
     }
+
+    file { "/Users/${my_username}/.ssh/pebble-us-east-1.pem":
+        source => "/Users/${my_username}/Dropbox/Config/AWS Keys/Work/Moving Brands EC2.pem",
+        owner => "${my_username}",
+        mode => '0600',
+        require => Repository['oh-my-zsh'],
+    }
     
     file { "/Users/${my_username}/.ssh/pebble.pem":
         source => "/Users/${my_username}/Dropbox/Config/AWS Keys/Work/pebble.pem",

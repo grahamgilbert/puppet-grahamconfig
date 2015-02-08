@@ -12,7 +12,7 @@ class grahamconfig::config::zsh (
     repository { 'oh-my-zsh':
         source => 'grahamgilbert/oh-my-zsh',
         path   => "/Users/${my_username}/.oh-my-zsh",
-        ensure => 'latest',
+        ensure => '7549f20e94f180b73612aebfdf66131f36b94cf2',
      }
 
      file {"/Users/${my_username}/.oh-my-zsh":

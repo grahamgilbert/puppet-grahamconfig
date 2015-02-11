@@ -7,7 +7,7 @@
 /usr/local/bin/dockutil --add '/Applications/Sublime Text.app' --no-restart
 /usr/local/bin/dockutil --add '/Applications/iTerm.app' --no-restart
 /usr/local/bin/dockutil --add '/Applications/Tweetbot.app' --no-restart
-/usr/local/bin/dockutil --add '/Applications/Trello X.app' --no-restart
+/usr/local/bin/dockutil --add '/Applications/Trello.app' --no-restart
 /usr/local/bin/dockutil --add '/Applications/IRC Cloud.app' --no-restart
 /usr/local/bin/dockutil --add '/Applications/Slack.app' --no-restart
 /usr/local/bin/dockutil --add '/Applications/Sunrise.app' --no-restart

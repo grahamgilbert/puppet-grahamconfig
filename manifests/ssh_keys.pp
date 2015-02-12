@@ -47,4 +47,20 @@ class grahamconfig::ssh_keys (
     file { "/Users/${my_username}/.ssh":
         ensure => directory,
     }
+
+    file { "/Users/${my_username}/.aws":
+        ensure => directory,
+    }
+
+    file { "/Users/${my_username}/.aws/config":
+        source => "/Users/${my_username}/Dropbox/Config/AWS Keys/cli/config",
+        owner => "${my_username}",
+        mode => '0600',
+    }
+
+    file { "/Users/${my_username}/.aws/credentials":
+        source => "/Users/${my_username}/Dropbox/Config/AWS Keys/cli/credentials",
+        owner => "${my_username}",
+        mode => '0600',
+    }
 }

@@ -4,7 +4,7 @@ class grahamconfig::wallpaper (
     $my_sourcedir = $grahamconfig::my_sourcedir
     $my_username  = $grahamconfig::my_username
 
-    outset::every{'wallpaper.sh':
+    outset::login_every{'wallpaper.sh':
         script => 'puppet:///modules/grahamconfig/wallpaper/set_wallpaper.sh'
     }
 

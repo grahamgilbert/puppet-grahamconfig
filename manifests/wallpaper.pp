@@ -4,8 +4,8 @@ class grahamconfig::wallpaper (
     $my_sourcedir = $grahamconfig::my_sourcedir
     $my_username  = $grahamconfig::my_username
 
-    scriptrunner::every{'wallpaper':
-        script => 'puppet:///modules/grahamconfig/wallpaper/set_wallpaper'
+    outset::every{'wallpaper.sh':
+        script => 'puppet:///modules/grahamconfig/wallpaper/set_wallpaper.sh'
     }
 
     file {'/Library/Management/bin/set_desktops.py':

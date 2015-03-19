@@ -4,8 +4,14 @@ class grahamconfig::wallpaper (
     $my_sourcedir = $grahamconfig::my_sourcedir
     $my_username  = $grahamconfig::my_username
 
-    outset::login_every{'wallpaper.sh':
-        script => 'puppet:///modules/grahamconfig/wallpaper/set_wallpaper.sh'
+    if $::sp_local_host_name == "Artoo" {
+        outset::login_every{'wallpaper.sh':
+            script => 'puppet:///modules/grahamconfig/wallpaper/set_wallpaper_home.sh'
+        }
+    }else{
+        outset::login_every{'wallpaper.sh':
+            script => 'puppet:///modules/grahamconfig/wallpaper/set_wallpaper_work.sh'
+        }
     }
 
     file {'/Library/Management/bin/set_desktops.py':

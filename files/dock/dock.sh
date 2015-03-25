@@ -10,7 +10,6 @@
 /usr/local/bin/dockutil --add '/Applications/Trello.app' --no-restart
 /usr/local/bin/dockutil --add '/Applications/IRC Cloud.app' --no-restart
 /usr/local/bin/dockutil --add '/Applications/Slack.app' --no-restart
-/usr/local/bin/dockutil --add '/Applications/Sunrise.app' --no-restart
 /usr/local/bin/dockutil --add '/Applications/VMware Fusion.app' --no-restart
 /usr/local/bin/dockutil --add '/Applications/GitHub.app' --no-restart
 /usr/local/bin/dockutil --add '~/Downloads' --view automatic --display stack --sort dateadded

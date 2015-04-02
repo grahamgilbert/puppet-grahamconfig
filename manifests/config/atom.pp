@@ -6,8 +6,8 @@ class grahamconfig::config::sublime_text (
     $my_username  = $grahamconfig::my_username
 
     file {"${my_homedir}/.atom":
-      ensure => 'link';
-      target => "${my_homedir}/Dropbox/Config/Atom"
+      ensure => 'link',
+      target => "${my_homedir}/Dropbox/Config/Atom",
     }
 
     file {'/usr/local/bin/atom':

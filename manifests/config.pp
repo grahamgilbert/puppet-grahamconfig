@@ -34,6 +34,7 @@ class grahamconfig::config (
 
     class { 'grahamconfig::config::system': } ->
     class { 'grahamconfig::config::autopkg': } ->
+    class { 'grahamconfig::config::atom': } ->
     class { 'grahamconfig::config::cocoapython': } ->
     class { 'grahamconfig::config::the_luggage': } ->
     class { 'grahamconfig::config::sublime_text': } ->

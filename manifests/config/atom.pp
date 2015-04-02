@@ -10,9 +10,4 @@ class grahamconfig::config::atom (
       target => "${my_homedir}/Dropbox/Config/Atom",
     }
 
-    file {'/usr/local/bin/atom':
-        ensure => 'link',
-        target => '/Applications/Atom.app/Contents/MacOS/Atom',
-    }
-
 }

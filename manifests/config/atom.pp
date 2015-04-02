@@ -1,4 +1,4 @@
-class grahamconfig::config::sublime_text (
+class grahamconfig::config::atom (
     ){
 
     $my_homedir   = $grahamconfig::my_homedir

@@ -1,3 +1,3 @@
 #!/bin/bash
 
-/usr/bin/python /Library/Management/bin/set_desktops.py --path ~/Dropbox/Documents/Sal/Sal_Blue-BG.png
+/usr/bin/python /Library/Management/bin/set_desktops.py --path ~/Dropbox/Images/Wallpaper/starwars-celebration-2015.jpg

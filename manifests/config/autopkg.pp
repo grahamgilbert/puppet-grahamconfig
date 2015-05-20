@@ -9,7 +9,7 @@ class grahamconfig::config::autopkg (
         user   => $my_username,
         domain => 'com.github.autopkg',
         key    => 'MUNKI_REPO',
-        value  => '/Volumes/Munki',
+        value  => '/Volumes/Munki/repo',
     }
 
     file {"$my_homedir/Dropbox/Config/bin/autopkg-repos.sh":
@@ -19,7 +19,7 @@ class grahamconfig::config::autopkg (
         source => 'puppet:///modules/grahamconfig/autopkg/autopkg-repos.sh',
     }
 
-    exec { 'AutoPkg recipes': 
+    exec { 'AutoPkg recipes':
         user => $my_username,
         command => "$my_homedir/Dropbox/Config/bin/autopkg-repos.sh",
         creates => "$my_homedir/Library/AutoPkg/RecipeRepos",

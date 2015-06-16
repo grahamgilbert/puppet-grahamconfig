@@ -12,5 +12,6 @@ class grahamconfig (
     class {'grahamconfig::fonts': } ->
     class {'grahamconfig::ssh_keys': } ->
     class {'grahamconfig::vagrant': } ->
-    class {'grahamconfig::git': }
+    class {'grahamconfig::git': } ->
+    class {'grahamconfig::crashplan': }
 }

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Label</key>
+	<string>com.crashplan.engine</string>
+	<key>UserName</key>
+	<string>root</string>
+	<key>GroupName</key>
+	<string>wheel</string>
+	<key>Nice</key>
+	<integer>20</integer>
+	<key>KeepAlive</key>
+	<true/>
+	<key>OnDemand</key>
+	<false/>
+	<key>RunAtLoad</key>
+	<true/>
+	<key>AbandonProcessGroup</key>
+	<true/>
+	<key>WorkingDirectory</key>
+	<string>/Applications/CrashPlan.app/Contents/Resources/Java</string>
+	<key>ProgramArguments</key>
+	<array>
+		<string>/Applications/CrashPlan.app/Contents/MacOS/CrashPlanService</string>
+		<string>-Dapp=CrashPlanService</string>
+		<string>-Xmn10m</string>
+		<string>-Xms15m</string>
+		<string>-Xmx2048m</string>
+		<string>-DappBaseName=CrashPlan</string>
+		<string>-Djava.awt.headless=true</string>
+		<string>-Dfile.encoding=UTF-8</string>
+		<string>-Djava.net.preferIPv4Stack=true</string>
+		<string>-Dsun.net.inetaddr.ttl=300</string>
+		<string>-Dnetworkaddress.cache.ttl=300</string>
+		<string>-Dsun.net.inetaddr.negative.ttl=0</string>
+		<string>-Dnetworkaddress.cache.negative.ttl=0</string>
+		<string>-DCP_USER_NAME=</string>
+		<string>-DCP_USER_HOME=/Users/grahamgilbert</string>
+		<string>-cp</string>
+		<string>lib/com.backup42.desktop.jar:lang</string>
+		<string>com.backup42.service.CPService</string>
+		<string>CP_USER_NAME=</string>
+		<string>CP_USER_HOME=/Users/grahamgilbert</string>
+	</array>
+	<key>StandardErrorPath</key>
+	<string>/Library/Logs/CrashPlan/engine_error.log</string>
+	<key>StandardOutPath</key>
+	<string>/Library/Logs/CrashPlan/engine_output.log</string>
+</dict>
+</plist>

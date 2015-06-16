@@ -4,7 +4,7 @@ class grahamconfig::crashplan (
     $my_sourcedir = $grahamconfig::my_sourcedir
     $my_username  = $grahamconfig::my_username
 
-    file '/Library/LaunchDaemons/com.crashplan.engine.plist':
+    file {'/Library/LaunchDaemons/com.crashplan.engine.plist':
         ensure => 'present',
         mode   => '644',
         owner  => 0,

@@ -22,6 +22,14 @@ class grahamconfig::config::system (
         user   => $my_username
     }
 
+    mac_admin::osx_defaults { 'Show hidden files in the Finder':
+        ensure => present,
+        domain => 'com.apple.Finder',
+        key    => 'AppleShowAllFiles',
+        value  => 'YES',
+        user   => $my_username
+    }
+
     mac_admin::osx_defaults { 'Disable Dashboard completely':
         ensure => present,
         domain => 'com.apple.dashboard',
@@ -92,7 +100,7 @@ class grahamconfig::config::system (
         value  => 'TwoButton',
         type   => 'string',
     }
-    
+
     mac_admin::osx_defaults { 'Set the trackpad tap to click':
         user   => $my_username,
         domain => 'com.apple.driver.AppleBluetoothMultitouch.trackpad',

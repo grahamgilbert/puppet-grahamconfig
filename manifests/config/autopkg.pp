@@ -23,12 +23,11 @@ class grahamconfig::config::autopkg (
         ensure   => installed,
         provider => pkgdmg,
         source   => 'https://github.com/autopkg/autopkg/releases/download/v0.4.2/autopkg-0.4.2.pkg',
-    }
+    } ->
 
     exec { 'AutoPkg recipes':
         user     => $my_username,
         command  => "$my_homedir/Dropbox/Config/bin/autopkg-repos.sh",
         creates  => "$my_homedir/Library/AutoPkg/RecipeRepos",
-        requires => Package['autopkg'],
     }
 }

@@ -4,7 +4,7 @@ class grahamconfig::config (
     $my_homedir   = $grahamconfig::my_homedir
     $my_sourcedir = $grahamconfig::my_sourcedir
     $my_username  = $grahamconfig::my_username
-    
+
     File {
         owner => $my_username,
         group => 'staff'
@@ -52,9 +52,9 @@ class grahamconfig::config (
 #     }
 
 
-    
 
- 
+
+
 
 
 
@@ -66,10 +66,10 @@ class grahamconfig::config (
     #     user    => $my_username,
     # }
 
-    
 
-   
-    
+
+
+
 
     ##hide away from meraki
     if !defined(File['/etc/meraki']){
@@ -86,7 +86,25 @@ class grahamconfig::config (
         mode    => '0644',
     }
 
-    
+    file {'/Applications/Kaleidoscope.app':
+        ensure => directory
+    }
+
+    file {'/Applications/Kaleidoscope.app/Contents':
+        ensure => directory
+    }
+
+    file {'/Applications/Kaleidoscope.app/Contents/Resources':
+        ensure => directory
+    }
+
+    file {'/Applications/Kaleidoscope.app/Contents/Resources/bin':
+        ensure => directory
+    }
+
+    file {'/Applications/Kaleidoscope.app/Contents/Resources/bin/ksdiff':
+        ensure => present
+    }
 
     file {'/usr/local/bin/ksdiff':
         owner   => 0,
@@ -102,7 +120,7 @@ class grahamconfig::config (
         target => "/Users/${my_username}/Dropbox/Config/Atom",
     }
 
-    
+
 
     #Sublime text
     file { "/Users/${my_username}/Library/Application Support/Sublime Text 2":

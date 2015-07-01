@@ -8,10 +8,10 @@ class grahamconfig::dock (
         script => 'puppet:///modules/grahamconfig/dock/dock.sh'
     }
 
-    if $::macosx_productversion == '10.10'{
-        outset::login_every{'Safari-dock.sh': 
-            script => 'puppet:///modules/grahamconfig/dock/safari-dock.sh',
-            ensure => absent,
+    if $::sp_serial_number == 'C02PW1LAFVH8'{
+        outset::login_every{'work-dock.sh':
+            script   => 'puppet:///modules/grahamconfig/dock/work-dock.sh',
+            priority => 20,
         }
     }
 }

@@ -1,4 +1,4 @@
 #!/bin/bash
 
-/usr/local/bin/dockutil --add '/Applications/Safari.app' --after 'Google Chrome'
-/usr/local/bin/dockutil --remove 'Google Chrome'
+/usr/local/bin/dockutil --add '/Applications/Microsoft Office 2011/Microsoft Outlook.app' --after 'Safari'
+/usr/local/bin/dockutil --add '/Applications/Microsoft Lync.app' --after 'Trello'

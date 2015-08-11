@@ -12,7 +12,7 @@ class grahamconfig::osquery (
         ensure => directory,
     }
 
-    file {'/var/osquery/osquery.conf':
+    file {'/var/osquery/osquery.conf.d/osquery.conf':
         ensure => present,
         source => 'puppet:///modules/grahamconfig/osquery/osquery.conf',
         mode   => 0644,

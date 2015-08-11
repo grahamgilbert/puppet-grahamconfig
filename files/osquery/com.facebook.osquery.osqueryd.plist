@@ -9,7 +9,7 @@
   <key>OnDemand</key>
   <false/>
   <key>Label</key>
-  <string>com.facebook.osquery.osqueryd</string>
+  <string>com.facebook.osqueryd</string>
   <key>Program</key>
   <string>/usr/local/bin/osqueryd</string>
   <key>RunAtLoad</key>

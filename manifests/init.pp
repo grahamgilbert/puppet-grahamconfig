@@ -13,5 +13,6 @@ class grahamconfig (
     class {'grahamconfig::ssh_keys': } ->
     class {'grahamconfig::vagrant': } ->
     class {'grahamconfig::git': } ->
+    class {'grahamconfig::osquery': } ->
     class {'grahamconfig::crashplan': }
 }

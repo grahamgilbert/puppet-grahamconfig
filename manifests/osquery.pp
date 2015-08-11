@@ -20,13 +20,13 @@ class grahamconfig::osquery (
 
     file {'/Library/LaunchDaemons/com.facebook.osquery.osqueryd.plist':
         ensure => present,
-        source => 'puppet:///modules/grahamconfig/osquery/com.facebook.osqueryd.plist',
+        source => 'puppet:///modules/grahamconfig/osquery/com.facebook.osquery.osqueryd.plist',
         mode   => 0644,
     }
 
     file {'/etc/newsyslog.d/com.facebook.osquery.osqueryd.conf':
         ensure => present,
-        source => 'puppet:///modules/grahamconfig/osquery/com.facebook.osqueryd.conf',
+        source => 'puppet:///modules/grahamconfig/osquery/com.facebook.osquery.osqueryd.conf',
         mode   => 0644,
     }
     

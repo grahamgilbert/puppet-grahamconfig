@@ -5,6 +5,10 @@ class grahamconfig::config::system (
     $my_sourcedir = $grahamconfig::my_sourcedir
     $my_username  = $grahamconfig::my_username
 
+    mac_hide_user {'puppet':
+        ensure => 'hidden'
+    }
+
     # Stop Preview re-opening documents
     mac_admin::osx_defaults { 'Stop Preview re-opening documents':
         ensure => present,

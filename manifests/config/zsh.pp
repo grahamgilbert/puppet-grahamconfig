@@ -27,10 +27,12 @@ class grahamconfig::config::zsh (
     #     ensure => '23f6a593f7abfc16eb15a9342528ee8721ba8bb0',
     # }
 
-    file {"/Users/${my_username}/.prezto":
+    file {"/Users/${my_username}/.zprezto":
         owner   => $my_username,
         recurse => true,
         # require => Repository['prezto'],
+        ensure => link,
+        target  => "${my_sourcedir}/Mine/prezto"
     }
 
     file { "/Users/${my_username}/.zlogin":

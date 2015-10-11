@@ -35,42 +35,42 @@ class grahamconfig::config::zsh (
 
     file { "/Users/${my_username}/.zlogin":
         ensure  => link,
-        target  => "/Users/${my_sourcedir}/Mine/prezto/runcoms/zlogin",
+        target  => "${my_sourcedir}/Mine/prezto/runcoms/zlogin",
         # require => Repository['oh-my-zsh'],
         owner   => $my_username,
     }
 
     file { "/Users/${my_username}/.zlogout":
         ensure  => link,
-        target  => "/Users/${my_sourcedir}/Mine/prezto/runcoms/zlogout",
+        target  => "${my_sourcedir}/Mine/prezto/runcoms/zlogout",
         # require => Repository['oh-my-zsh'],
         owner   => $my_username,
     }
 
     file { "/Users/${my_username}/.zpreztorc":
         ensure  => link,
-        target  => "/Users/${my_sourcedir}/Mine/prezto/runcoms/zpreztorc",
+        target  => "${my_sourcedir}/Mine/prezto/runcoms/zpreztorc",
         # require => Repository['prezto'],
         owner   => $my_username,
     }
 
     file { "/Users/${my_username}/.zprofile":
         ensure  => link,
-        target  => "/Users/${my_sourcedir}/Mine/prezto/runcoms/zprofile",
+        target  => "${my_sourcedir}/Mine/prezto/runcoms/zprofile",
         # require => Repository['prezto'],
         owner   => $my_username,
     }
 
     file { "/Users/${my_username}/.zshenv":
         ensure  => link,
-        target  => "/Users/${my_sourcedir}/Mine/prezto/runcoms/zshenv",
+        target  => "${my_sourcedir}/Mine/prezto/runcoms/zshenv",
         # require => Repository['prezto'],
         owner   => $my_username,
     }
 
     file { "/Users/${my_username}/.zshrc":
         ensure  => link,
-        target  => "/Users/${my_sourcedir}/Mine/prezto/runcoms/zshrc",
+        target  => "${my_sourcedir}/Mine/prezto/runcoms/zshrc",
         # require => Repository['prezto'],
         owner   => $my_username,
     }

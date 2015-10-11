@@ -21,11 +21,11 @@ class grahamconfig::config::zsh (
         require => Repository['oh-my-zsh'],
     }
 
-    repository {'prezto':
-        source => 'grahamgilbert/prezto',
-        path   => "/Users/${my_sourcedir}/Mine/prezto",
-        ensure => '59e80407aef08f7d056d51af37e57e6f65312e11',
-    }
+    # repository {'prezto':
+    #     source => 'grahamgilbert/prezto',
+    #     path   => "/Users/${my_sourcedir}/Mine/prezto",
+    #     ensure => '23f6a593f7abfc16eb15a9342528ee8721ba8bb0',
+    # }
 
     file {"/Users/${my_username}/.prezto":
         owner   => $my_username,

@@ -15,10 +15,22 @@ class grahamconfig::config::zsh (
         ensure => '564e36d770883c2e64d2d9946632f22332e98e90',
      }
 
-     file {"/Users/${my_username}/.oh-my-zsh":
+    file {"/Users/${my_username}/.oh-my-zsh":
         owner   => $my_username,
         recurse => true,
         require => Repository['oh-my-zsh'],
+    }
+
+    repository {'prezto':
+        source => 'grahamgilbert/prezto',
+        path   => "/Users/${my_username}/.prezto",
+        ensure => latest,
+    }
+
+    file {"/Users/${my_username}/.prezto":
+        owner   => $my_username,
+        recurse => true,
+        require => Repository['prezto'],
     }
 
     file { "/Users/${my_username}/.zshrc":

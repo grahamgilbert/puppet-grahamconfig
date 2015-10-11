@@ -24,7 +24,7 @@ class grahamconfig::config::zsh (
     repository {'prezto':
         source => 'grahamgilbert/prezto',
         path   => "/Users/${my_sourcedir}/Mine/prezto",
-        ensure => 'f2a826e963f06a204dc0e09c05fc3e5419799f52',
+        ensure => '59e80407aef08f7d056d51af37e57e6f65312e11',
     }
 
     file {"/Users/${my_username}/.prezto":

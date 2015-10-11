@@ -23,8 +23,8 @@ class grahamconfig::config::zsh (
 
     repository {'prezto':
         source => 'grahamgilbert/prezto',
-        path   => "/Users/${my_username}/.prezto",
-        ensure => latest,
+        path   => "/Users/${my_sourcedir}/Mine/prezto",
+        ensure => 'f2a826e963f06a204dc0e09c05fc3e5419799f52',
     }
 
     file {"/Users/${my_username}/.prezto":
@@ -33,11 +33,53 @@ class grahamconfig::config::zsh (
         require => Repository['prezto'],
     }
 
-    file { "/Users/${my_username}/.zshrc":
+    file { "/Users/${my_username}/.zlogin":
         ensure  => link,
-        target  => "/Users/${my_username}/.oh-my-zsh/grahams-zshrc",
+        target  => "/Users/${my_sourcedir}/Mine/prezto/runcoms/zlogin",
         require => Repository['oh-my-zsh'],
         owner   => $my_username,
     }
+
+    file { "/Users/${my_username}/.zlogout":
+        ensure  => link,
+        target  => "/Users/${my_sourcedir}/Mine/prezto/runcoms/zlogout",
+        require => Repository['oh-my-zsh'],
+        owner   => $my_username,
+    }
+
+    file { "/Users/${my_username}/.zpreztorc":
+        ensure  => link,
+        target  => "/Users/${my_sourcedir}/Mine/prezto/runcoms/zpreztorc",
+        require => Repository['prezto'],
+        owner   => $my_username,
+    }
+
+    file { "/Users/${my_username}/.zprofile":
+        ensure  => link,
+        target  => "/Users/${my_sourcedir}/Mine/prezto/runcoms/zprofile",
+        require => Repository['prezto'],
+        owner   => $my_username,
+    }
+
+    file { "/Users/${my_username}/.zshenv":
+        ensure  => link,
+        target  => "/Users/${my_sourcedir}/Mine/prezto/runcoms/zshenv",
+        require => Repository['prezto'],
+        owner   => $my_username,
+    }
+
+    file { "/Users/${my_username}/.zshrc":
+        ensure  => link,
+        target  => "/Users/${my_sourcedir}/Mine/prezto/runcoms/zshrc",
+        require => Repository['prezto'],
+        owner   => $my_username,
+    }
+
+    # file { "/Users/${my_username}/.zshrc":
+    #     ensure  => link,
+    #     target  => "/Users/${my_username}/.oh-my-zsh/grahams-zshrc",
+    #     require => Repository['oh-my-zsh'],
+    #     owner   => $my_username,
+    # }
 
 }

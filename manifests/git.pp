@@ -4,6 +4,8 @@ class grahamconfig::git (
     $my_sourcedir = $grahamconfig::my_sourcedir
     $my_username  = $grahamconfig::my_username
 
+    $::boxen_user = $my_username
+
     git::config::global{ 'credential.helper':
         value => 'osxkeychain',
     }

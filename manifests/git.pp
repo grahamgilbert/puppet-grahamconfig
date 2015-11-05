@@ -25,7 +25,7 @@ class grahamconfig::git (
     file {'/usr/local/bin/git-fat':
         ensure => present,
         source => 'puppet:///modules/grahamconfig/git-fat',
-        mode   => 0755,
+        mode   => '0755',
         owner  => 0,
         group  => 0,
     }

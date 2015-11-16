@@ -34,7 +34,7 @@ class grahamconfig::config::system (
         ensure => present,
         domain => 'com.apple.Finder',
         key    => 'AppleShowAllFiles',
-        value  => 'YES',
+        value  => 'NO',
         user   => $my_username
     }
 

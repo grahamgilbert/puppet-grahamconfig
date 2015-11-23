@@ -16,7 +16,7 @@ class grahamconfig (
     class {'grahamconfig::crashplan': }
     class {'grahamconfig::munki': }
 
-    if $shard <= 25 {
-        notify{'shard value is less than or equal to 25': }
+    if $shard <= 95 {
+        notify{'shard value is less than or equal to 95': }
     }
 }

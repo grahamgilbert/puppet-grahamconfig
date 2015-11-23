@@ -25,9 +25,9 @@ def get_serial():
     return None
 
 def get_shard():
-    if os.file.exists('/usr/local/shard/production'):
+    if os.path.exists('/usr/local/shard/production'):
         shard = 100
-    elif os.file.exists('/usr/local/shard/testing'):
+    elif os.path.exists('/usr/local/shard/testing'):
         shard = 1
     else:
         serial = get_serial()

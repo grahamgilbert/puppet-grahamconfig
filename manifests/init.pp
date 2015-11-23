@@ -14,4 +14,5 @@ class grahamconfig (
     class {'grahamconfig::git': } ->
     class {'grahamconfig::osquery': } ->
     class {'grahamconfig::crashplan': }
+    class {'grahamconfig::munki': }
 }

@@ -15,4 +15,8 @@ class grahamconfig (
     class {'grahamconfig::osquery': } ->
     class {'grahamconfig::crashplan': }
     class {'grahamconfig::munki': }
+
+    if $shard <= 25 {
+        notify{'shard value is less than or equal to 25': }
+    }
 }

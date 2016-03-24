@@ -12,6 +12,7 @@ class grahamconfig (
     class {'grahamconfig::fonts': } ->
     class {'grahamconfig::ssh_keys': } ->
     class {'grahamconfig::git': } ->
+    class {'grahamconfig::homebrew': } ->
     class {'grahamconfig::osquery': } ->
     class {'grahamconfig::crashplan': }
     class {'grahamconfig::munki': }

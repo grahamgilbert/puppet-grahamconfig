@@ -69,15 +69,19 @@ class grahamconfig::directories (
     }
 
     # Install the ksdiff tool
-    file {'/usr/local':
-        ensure => 'directory',
-        owner  => "$my_username",
-        group  => 'staff',
+    if !defined(File['/usr/local']){
+        file {'/usr/local':
+            ensure => 'directory',
+            owner  => "$my_username",
+            group  => 'staff',
+        }
     }
 
-    file {'/usr/local/bin':
-        ensure => 'directory',
-        owner  => "$my_username",
-        group  => 'staff',
+    if !defined(File['/usr/local/bin']){
+        file {'/usr/local/bin':
+            ensure => 'directory',
+            owner  => "$my_username",
+            group  => 'staff',
+        }
     }
 }

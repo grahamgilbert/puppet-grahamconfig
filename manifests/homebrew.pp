@@ -7,6 +7,5 @@ class grahamconfig::homebrew {
     package {'youtube-dl':
         ensure   => 'latest',
         provider => 'brew',
-        linkapps => true,
     }
 }

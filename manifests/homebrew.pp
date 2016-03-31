@@ -9,7 +9,12 @@ class grahamconfig::homebrew {
         provider => 'brew',
     }
 
-    package {'argon/mas/mas':
+    package {'argon/mas':
+        ensure   => 'present',
+        provider => 'tap',
+    } ->
+
+    package {'mas':
         ensure   => 'latest',
         provider => 'brew',
     }

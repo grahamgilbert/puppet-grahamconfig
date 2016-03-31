@@ -7,7 +7,7 @@ class grahamconfig::homebrew {
     exec { '/usr/local/bin/brew tap argon/mas':
         user => 'grahamgilbert',
         creates => '/usr/local/homebrew/Library/Taps/argon/homebrew-mas'
-    }
+    } ->
 
     package {'youtube-dl':
         ensure   => 'latest',

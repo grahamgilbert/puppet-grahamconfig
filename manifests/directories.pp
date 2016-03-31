@@ -4,6 +4,19 @@ class grahamconfig::directories (
     $my_sourcedir = $grahamconfig::my_sourcedir
     $my_username  = $grahamconfig::my_username
 
+    file {'/etc/facter':
+        ensure => 'directory'
+    }
+
+    file {'/etc/facter/facts.d':
+        ensure => 'directory'
+    }
+
+    file {'/etc/facter/facts.d/boxen_user.txt':
+        ensure => 'present',
+        content => "boxen_user=${my_username}",
+    }
+
     File {
         owner   => $my_username,
         group   => 'staff',
@@ -35,16 +48,16 @@ class grahamconfig::directories (
         target => "/Users/${my_username}/Dropbox/Vagrant",
     }
 
-    file {"/Users/${my_username}/Dropbox":
-        ensure => link,
-        target => "/Users/${my_username}/Dropbox (Personal)",
-        notify => Exec['Hide Dropbox'],
-    }
-
-    exec{'Hide Dropbox':
-        command     => "/usr/bin/chflags -h hidden /Users/${my_username}/Dropbox",
-        refreshonly => true
-    }
+    # file {"/Users/${my_username}/Dropbox":
+    #     ensure => link,
+    #     target => "/Users/${my_username}/Dropbox (Personal)",
+    #     notify => Exec['Hide Dropbox'],
+    # }
+    #
+    # exec{'Hide Dropbox':
+    #     command     => "/usr/bin/chflags -h hidden /Users/${my_username}/Dropbox",
+    #     refreshonly => true
+    # }
 
     file {"${my_sourcedir}/Others":
         ensure => link,

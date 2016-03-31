@@ -1,18 +1,22 @@
 class grahamconfig::homebrew {
     class {'homebrew':
-      user  => 'grahamgilbert',
-      group => 'staff',
+        user  => 'grahamgilbert',
+        group => 'staff',
     } ->
+
+    exec { '/usr/local/bin/brew tap argon/mas',
+        user => 'grahamgilbert',
+    }
 
     package {'youtube-dl':
         ensure   => 'latest',
         provider => 'brew',
     } ->
 
-    package {'argon/mas':
-        ensure   => 'present',
-        provider => 'tap',
-    } ->
+    # package {'argon/mas':
+    #     ensure   => 'present',
+    #     provider => 'tap',
+    # } ->
 
     package {'mas':
         ensure   => 'latest',

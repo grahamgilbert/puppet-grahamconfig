@@ -8,4 +8,24 @@ class grahamconfig::homebrew {
         ensure   => 'latest',
         provider => 'brew',
     }
+
+    package {'argon/mas/mas':
+        ensure   => 'latest',
+        provider => 'brew',
+    }
+
+    package {'htop-osx':
+        ensure   => 'latest',
+        provider => 'brew',
+    }
+
+    package {'awscli':
+        ensure   => 'latest',
+        provider => 'brew',
+    }
+
+    package {'tree':
+        ensure   => 'latest',
+        provider => 'brew',
+    }
 }

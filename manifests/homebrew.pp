@@ -10,7 +10,7 @@ class grahamconfig::homebrew {
     } ->
 
     package {'youtube-dl':
-        ensure   => 'latest',
+        ensure   => 'present',
         provider => 'brew',
     } ->
 
@@ -20,22 +20,22 @@ class grahamconfig::homebrew {
     # } ->
 
     package {'mas':
-        ensure   => 'latest',
+        ensure   => 'present',
         provider => 'brew',
     } ->
 
     package {'htop-osx':
-        ensure   => 'latest',
+        ensure   => 'present',
         provider => 'brew',
     } ->
 
     package {'awscli':
-        ensure   => 'latest',
+        ensure   => 'present',
         provider => 'brew',
     } ->
 
     package {'tree':
-        ensure   => 'latest',
+        ensure   => 'present',
         provider => 'brew',
     }
 }

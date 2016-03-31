@@ -4,8 +4,9 @@ class grahamconfig::homebrew {
         group => 'staff',
     } ->
 
-    exec { '/usr/local/bin/brew tap argon/mas',
+    exec { '/usr/local/bin/brew tap argon/mas':
         user => 'grahamgilbert',
+        creates => '/usr/local/homebrew/Library/Taps/argon/homebrew-mas'
     }
 
     package {'youtube-dl':

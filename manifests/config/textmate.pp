@@ -7,10 +7,10 @@ class grahamconfig::config::textmate (
 
     # TextMate
 
-    repository { 'puppet-textmate-bundle':
-        source  => 'puppet-textmate-bundle/puppet-textmate-bundle',
-        path    => "${my_sourcedir}/Others/puppet-textmate-bundle",
-    }
+    # repository { 'puppet-textmate-bundle':
+    #     source  => 'puppet-textmate-bundle/puppet-textmate-bundle',
+    #     path    => "${my_sourcedir}/Others/puppet-textmate-bundle",
+    # }
 
     # file { "/Users/${my_username}/Library/Application Support/TextMate/Managed/Bundles/Puppet.tmbundle":
     #     ensure  => link,

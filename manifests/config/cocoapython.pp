@@ -6,10 +6,10 @@ class grahamconfig::config::cocoapython (
     $my_username  = $grahamconfig::my_username
 
     # CocoaPython Template for Xcode
-    repository { 'Xcode6CocoaPythonTemplates':
-        source => 'gregneagle/Xcode6CocoaPythonTemplates',
-        path   => "${my_sourcedir}/Others/Xcode6CocoaPythonTemplates",
-    }
+    # repository { 'Xcode6CocoaPythonTemplates':
+    #     source => 'gregneagle/Xcode6CocoaPythonTemplates',
+    #     path   => "${my_sourcedir}/Others/Xcode6CocoaPythonTemplates",
+    # }
 
     file { "/Users/${my_username}/Library/Developer":
         ensure => directory
@@ -22,7 +22,7 @@ class grahamconfig::config::cocoapython (
     file { "/Users/${my_username}/Library/Developer/Xcode/Templates":
         ensure  => link,
         target  => "${my_sourcedir}/Others/Xcode6CocoaPythonTemplates",
-        require => Repository['Xcode6CocoaPythonTemplates']
+        # require => Repository['Xcode6CocoaPythonTemplates']
     }
 
 }

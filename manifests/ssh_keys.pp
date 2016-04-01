@@ -8,35 +8,35 @@ class grahamconfig::ssh_keys (
         source => "/Users/${my_username}/Dropbox/Config/AWS Keys/Personal/ggmbpkey.pem",
         owner => "${my_username}",
         mode => '0600',
-        require => Repository['oh-my-zsh'],
+        # require => Repository['oh-my-zsh'],
     }
 
     file { "/Users/${my_username}/.ssh/config":
         source => "/Users/${my_username}/Dropbox/Config/SSH Keys/ssh_config",
         owner => "${my_username}",
         mode => '0600',
-        require => Repository['oh-my-zsh'],
+        # require => Repository['oh-my-zsh'],
     }
 
     file { "/Users/${my_username}/.ssh/Moving_Brands_EC2.pem":
         source => "/Users/${my_username}/Dropbox/Config/AWS Keys/Work/Moving Brands EC2.pem",
         owner => "${my_username}",
         mode => '0600',
-        require => Repository['oh-my-zsh'],
+        # require => Repository['oh-my-zsh'],
     }
 
     file { "/Users/${my_username}/.ssh/pebble-us-east-1.pem":
         source => "/Users/${my_username}/Dropbox/Config/AWS Keys/Work/pebble-us-east-1.pem",
         owner => "${my_username}",
         mode => '0600',
-        require => Repository['oh-my-zsh'],
+        # require => Repository['oh-my-zsh'],
     }
 
     file { "/Users/${my_username}/.ssh/pebble.pem":
         source => "/Users/${my_username}/Dropbox/Config/AWS Keys/Work/pebble.pem",
         owner => "${my_username}",
         mode => '0600',
-        require => Repository['oh-my-zsh'],
+        # require => Repository['oh-my-zsh'],
     }
 
     file { "/Users/${my_username}/.ssh/id_rsa":

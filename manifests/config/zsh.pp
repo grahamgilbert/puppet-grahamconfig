@@ -9,17 +9,17 @@ class grahamconfig::config::zsh (
         shell   => '/bin/zsh',
     }
 
-    repository { 'oh-my-zsh':
-        source => 'grahamgilbert/oh-my-zsh',
-        path   => "/Users/${my_username}/.oh-my-zsh",
-        ensure => '564e36d770883c2e64d2d9946632f22332e98e90',
-     }
+    # repository { 'oh-my-zsh':
+    #     source => 'grahamgilbert/oh-my-zsh',
+    #     path   => "/Users/${my_username}/.oh-my-zsh",
+    #     ensure => '564e36d770883c2e64d2d9946632f22332e98e90',
+    #  }
 
-    file {"/Users/${my_username}/.oh-my-zsh":
-        owner   => $my_username,
-        recurse => true,
-        require => Repository['oh-my-zsh'],
-    }
+    # file {"/Users/${my_username}/.oh-my-zsh":
+    #     owner   => $my_username,
+    #     recurse => true,
+    #     require => Repository['oh-my-zsh'],
+    # }
 
     # repository {'prezto':
     #     source => 'grahamgilbert/prezto',

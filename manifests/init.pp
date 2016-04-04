@@ -3,8 +3,7 @@ class grahamconfig (
     $my_homedir   = '/Users/grahamgilbert',
     $my_sourcedir = '/Users/grahamgilbert/src',
     ){
-        class {'grahamconfig::homebrew': } ->
-        class {'grahamconfig::mas': }
+        class {'grahamconfig::homebrew': }
         class {'grahamconfig::gems': } ->
         class {'grahamconfig::directories': } ->
         class {'grahamconfig::repositories': } ->

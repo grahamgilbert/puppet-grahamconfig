@@ -2,7 +2,7 @@ class grahamconfig::mas {
 
     include mas
 
-    package { 'Dash':
+    package { 'Tweetbot':
         ensure   => 'present',
         provider => 'mas',
     }

@@ -2,8 +2,8 @@ class grahamconfig::mas {
 
     include mas
 
-    package { 'Tweetbot':
-        ensure   => '557168941',
+    package { 'Tweetbot for Twitter':
+        ensure   => 'installed',
         provider => 'mas',
     }
 }

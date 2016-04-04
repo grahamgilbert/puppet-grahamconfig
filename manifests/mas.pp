@@ -3,7 +3,7 @@ class grahamconfig::mas {
     include mas
 
     package { 'Tweetbot':
-        ensure   => 'present',
+        ensure   => '557168941',
         provider => 'mas',
     }
 }

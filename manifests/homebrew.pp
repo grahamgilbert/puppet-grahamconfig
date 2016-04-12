@@ -1,6 +1,6 @@
 class grahamconfig::homebrew {
     class {'homebrew':
-        user  => 'grahamgilbert',
+        user  => "${::grahamgconfig::my_username}",
         group => 'staff',
     } ->
 

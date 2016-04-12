@@ -1,6 +1,9 @@
 class grahamconfig::homebrew {
+    $my_homedir   = $grahamconfig::my_homedir
+    $my_sourcedir = $grahamconfig::my_sourcedir
+    $my_username  = $grahamconfig::my_username
     class {'homebrew':
-        user  => "${::grahamgconfig::my_username}",
+        user  => "${my_username}",
         group => 'staff',
     } ->
 

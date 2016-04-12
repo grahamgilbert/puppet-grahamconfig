@@ -4,9 +4,9 @@ class grahamconfig (
     $my_sourcedir = '/Users/grahamgilbert/src',
     ){
         if $facts['mac_current_user'] == 'graham_gilbert' {
-        $my_username  = 'graham_gilbert',
-        $my_homedir   = '/Users/graham_gilbert',
-        $my_sourcedir = '/Users/graham_gilbert/src',
+        $my_username  = 'graham_gilbert'
+        $my_homedir   = '/Users/graham_gilbert'
+        $my_sourcedir = '/Users/graham_gilbert/src'
         }
         class {'grahamconfig::homebrew': }
         class {'grahamconfig::gems': } ->

@@ -4,13 +4,15 @@ class grahamconfig::config::system (
     $my_homedir   = $grahamconfig::my_homedir
     $my_sourcedir = $grahamconfig::my_sourcedir
     $my_username  = $grahamconfig::my_username
-
+    
+    if $my_username == 'grahamgilbert' {
     # Follow HTTP redirects with munki
     mac_admin::osx_defaults { 'Follow HTTP redirects with munki':
         ensure => present,
         domain => '/Library/Preferences/ManagedInstalls',
         key    => 'FollowHTTPRedirects',
         value  => 'https',
+    }
     }
 
     # Stop Preview re-opening documents

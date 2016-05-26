@@ -20,4 +20,11 @@ class grahamconfig::wallpaper (
         mode   => '0755',
         source => 'puppet:///modules/grahamconfig/wallpaper/set_desktops.py'
     }
+
+    file {'/Library/Management/bin/set_random_desktop.py':
+        owner  => root,
+        group  => wheel,
+        mode   => '0755',
+        source => 'puppet:///modules/grahamconfig/wallpaper/set_random_desktop.py'
+    }
 }

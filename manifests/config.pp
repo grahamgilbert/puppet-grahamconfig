@@ -27,7 +27,7 @@ class grahamconfig::config (
         ensure => present,
         domain => 'com.apple.screensaver',
         key    => 'askForPasswordDelay',
-        value  => '30',
+        value  => '5',
         type   => 'float',
         user   => $my_username
     }

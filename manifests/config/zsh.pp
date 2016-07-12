@@ -80,7 +80,7 @@ class grahamconfig::config::zsh (
     file {"/Users/${my_username}/.terraform_secrets":
         ensure => link,
         target => "/Users/${my_username/Dropbox/Config/Terraform/secrets",
-        owner  => $my_username
+        owner  => "$my_username",
     }
 
     # file { "/Users/${my_username}/.zshrc":

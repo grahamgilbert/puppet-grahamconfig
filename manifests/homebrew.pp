@@ -25,5 +25,10 @@ class grahamconfig::homebrew {
     package {'tree':
         ensure   => 'present',
         provider => 'brew',
+    } ->
+
+    package {'terraform':
+        ensure   => 'present',
+        provider => 'brew',
     }
 }

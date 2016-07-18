@@ -42,6 +42,7 @@ class grahamconfig::config (
     class { 'grahamconfig::config::zsh': } ->
     class { 'grahamconfig::config::alfred': } ->
     class { 'grahamconfig::config::iterm': }
+    class { 'grahamconfig::config::colors': }
 
     # If on Home Machine, enroll in Systems manager
     # if $::fqdn == 'Artoo.local'{

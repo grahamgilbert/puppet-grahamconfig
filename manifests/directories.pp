@@ -48,25 +48,25 @@ class grahamconfig::directories (
         target => "/Users/${my_username}/Dropbox/Vagrant",
     }
 
-    # file {"/Users/${my_username}/Dropbox":
-    #     ensure => link,
-    #     target => "/Users/${my_username}/Dropbox (Personal)",
-    #     notify => Exec['Hide Dropbox'],
-    # }
-    #
-    # exec{'Hide Dropbox':
-    #     command     => "/usr/bin/chflags -h hidden /Users/${my_username}/Dropbox",
-    #     refreshonly => true
-    # }
+    file {"/Users/${my_username}/Dropbox":
+        ensure => link,
+        target => "/Users/${my_username}/Dropbox (Personal)",
+        notify => Exec['Hide Dropbox'],
+    }
+
+    exec{'Hide Dropbox':
+        command     => "/usr/bin/chflags -h hidden /Users/${my_username}/Dropbox",
+        refreshonly => true
+    }
 
     file {"${my_sourcedir}/Others":
         ensure => link,
         target => "/Users/${my_username}/Dropbox/src/Others",
     }
 
-    file {"${my_sourcedir}/Work":
+    file {"${my_sourcedir}/airbnb":
         ensure => link,
-        target => "/Users/${my_username}/Dropbox/src/Work",
+        target => "/Users/${my_username}/Dropbox/src/airbnb",
     }
 
     if !defined(File['/Library/Management']){

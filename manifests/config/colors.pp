@@ -5,11 +5,6 @@ class grahamconfig::config::colors (
     $my_sourcedir = $grahamconfig::my_sourcedir
     $my_username  = $grahamconfig::my_username
 
-    osx_chsh { $my_username:
-        shell   => '/bin/zsh',
-    }
-
-
     file {"/Users/${my_username}/Library/Colors":
         owner   => $my_username,
         ensure  => 'directory'

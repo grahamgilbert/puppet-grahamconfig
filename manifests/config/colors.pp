@@ -13,9 +13,10 @@ class grahamconfig::config::colors (
     file {"/Users/${my_username}/Library/Colors":
         owner   => $my_username,
         ensure  => 'directory'
+    }
 
     file {"/Users/${my_username}/Library/Colors/Airbnb Colors.clr":
-        ensure => present,
+        ensure => 'present',
         source => "/Users/${my_username}/Dropbox/Config/Colors/Airbnb Colors.clr",
         owner  => "${my_username}",
     }

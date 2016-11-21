@@ -149,12 +149,6 @@ class grahamconfig::config (
         target  => "${my_homedir}/Dropbox/Apps/iStat Menus/com.bjango.istatmenus.extras.plist"
     }
 
-    # Bartender Preferences
-    file { "/Users/${my_username}/Library/Preferences/com.surteesstudios.Bartender.plist":
-        ensure  => link,
-        target  => "${my_homedir}/Dropbox/Apps/Bartender/com.surteesstudios.Bartender.plist"
-    }
-
 
     mac_admin::osx_defaults {'Activate Caffeine on launch':
         user   => $my_username,

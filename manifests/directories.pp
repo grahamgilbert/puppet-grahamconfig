@@ -69,6 +69,16 @@ class grahamconfig::directories (
         target => "/Users/${my_username}/Dropbox/src/airbnb",
     }
 
+    file {"${my_sourcedir}/puppet_modules":
+        ensure => link,
+        target => "/Users/${my_username}/Dropbox/src/puppet_modules",
+    }
+
+    file {"${my_homedir}/chef-repo":
+        ensure => link,
+        target => "/Users/${my_username}/Dropbox/src/chef-repo",
+    }
+
     if !defined(File['/Library/Management']){
         file {'/Library/Management':
             ensure => directory,

@@ -15,7 +15,7 @@ class grahamconfig::git (
     }
 
     git::config::global{ 'user.email':
-        value => '"(none)"',
+        value => 'graham@grahamgilbert.com',
     }
 
     if !defined(File['/usr/local/bin']){

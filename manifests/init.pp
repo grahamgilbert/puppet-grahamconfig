@@ -1,7 +1,7 @@
 class grahamconfig (
     $my_username  = 'grahamgilbert',
     $my_homedir   = '/Users/grahamgilbert',
-    $my_sourcedir = '/Users/grahamgilbert/src',
+    $my_sourcedir = '/Users/grahamgilbert/src'
     ){
         class {'grahamconfig::homebrew': }
         class {'grahamconfig::gems': } ->
@@ -14,7 +14,7 @@ class grahamconfig (
         class {'grahamconfig::ssh_keys': } ->
         class {'grahamconfig::git': } ->
         class {'grahamconfig::osquery': } ->
-        class {'grahamconfig::crashplan': }
-        class {'grahamconfig::munki': }
+        # class {'grahamconfig::crashplan': }
+        # class {'grahamconfig::munki': }
 
 }
